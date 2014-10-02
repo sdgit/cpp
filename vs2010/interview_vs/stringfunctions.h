@@ -1,0 +1,6 @@
+#ifndef STRINGFUNCTION_H
+#define STRINGFUNCTION_H
+
+
+
+#endif
