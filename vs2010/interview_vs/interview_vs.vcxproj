@@ -10,6 +10,21 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\linkedlist.cpp" />
+    <ClCompile Include="..\..\src\misc.cpp" />
+    <ClCompile Include="..\..\src\number_utils.cpp" />
+    <ClCompile Include="..\..\src\stack.cpp" />
+    <ClCompile Include="..\..\src\stringfunctions.cpp" />
+    <ClCompile Include="..\..\src\test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\linkedlist.h" />
+    <ClInclude Include="..\..\src\misc.h" />
+    <ClInclude Include="..\..\src\number_utils.h" />
+    <ClInclude Include="..\..\src\stack.h" />
+    <ClInclude Include="..\..\src\stringfunctions.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3FC3EBD6-9B14-4DE6-BEF3-E51BD3FB1566}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -74,21 +89,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="linkedlist.h" />
-    <ClInclude Include="misc.h" />
-    <ClInclude Include="number_utils.h" />
-    <ClInclude Include="stack.h" />
-    <ClInclude Include="stringfunctions.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="linkedlist.cpp" />
-    <ClCompile Include="misc.cpp" />
-    <ClCompile Include="number_utils.cpp" />
-    <ClCompile Include="stack.cpp" />
-    <ClCompile Include="stringfunctions.cpp" />
-    <ClCompile Include="test.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
