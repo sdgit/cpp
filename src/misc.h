@@ -1,8 +1,5 @@
 #include <iostream>
 
-bool ReverseString(char * theString, int size);
-
-int UniqueElements(char * array, int size);
 
 struct node {
     void * data;

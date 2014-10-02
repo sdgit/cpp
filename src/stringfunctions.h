@@ -1,6 +1,12 @@
 #ifndef STRINGFUNCTION_H
 #define STRINGFUNCTION_H
 
+#include <iostream>
 
+namespace sd {
+	bool ReverseString(char * theString, int size);
+
+	int UniqueElements(char * array, int size);
+}
 
 #endif

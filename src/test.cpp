@@ -1,10 +1,11 @@
-#include "number_utils.h"
 #include <iostream>
-#include "linkedlist.h"
-#include "misc.h"
 #include <list>
 #include <string>
 
+#include "linkedlist.h"
+#include "misc.h"
+#include "number_utils.h"
+#include "stringfunctions.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -164,11 +165,11 @@ void runStack()
     std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
 
     char hello[] = "HELL";
-    ReverseString(hello, sizeof(hello)-1);
+    sd::ReverseString(hello, sizeof(hello)-1);
 
     std::cout<< "HELL reversed = "<< hello <<std::endl;
 
-    std::cout<< "unique:"<<UniqueElements(hello,sizeof(hello)-1)<<std::endl;
+    std::cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
 
 
 }
