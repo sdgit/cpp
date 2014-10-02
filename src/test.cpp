@@ -66,11 +66,11 @@ void compareDoublesTest()
 {
 	bool result = false;
 	
-	result = number_utils::compare(3.502, 3.504, .0001);
+	result = sd::number_utils::compare(3.502, 3.504, .0001);
 
 	printDoubleResult(result);
 
-	result = number_utils::compare(3.50127, 3.50121, .0001);
+	result = sd::number_utils::compare(3.50127, 3.50121, .0001);
 
 	printDoubleResult(result);
 }
@@ -133,15 +133,15 @@ void runStack()
 
     std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
 
-    ReverseM(&head);
+    sd::ReverseM(&head);
 
     std::cout<< "reversem printStack returned:"<<(bool)printStack(head)<<std::endl;
 
-    ReverseT(&head);
+    sd::ReverseT(&head);
 
     std::cout<< "reverset printStack returned:"<<(bool)printStack(head)<<std::endl;
 
-    Sort(&head);
+    sd::Sort(&head);
 
     std::cout<< "sorted printStack returned:"<<(bool)printStack(head)<<std::endl;
 
@@ -151,11 +151,11 @@ void runStack()
 
     Element tempElem;
     tempElem.data = (void*)16;
-    SortedInsert(&head, &tempElem);
+    sd::SortedInsert(&head, &tempElem);
 
     std::cout<< "sorted insert printStack returned:"<<(bool)printStack(head)<<std::endl;
 
-    ReverseT(&head);
+    sd::ReverseT(&head);
 
     std::cout<< "reverset printStack returned:"<<(bool)printStack(head)<<std::endl;
 
