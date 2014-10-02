@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\binary_tree.cpp" />
     <ClCompile Include="..\..\src\linkedlist.cpp" />
     <ClCompile Include="..\..\src\misc.cpp" />
     <ClCompile Include="..\..\src\number_utils.cpp" />
@@ -19,6 +20,7 @@
     <ClCompile Include="..\..\src\test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\binary_tree.h" />
     <ClInclude Include="..\..\src\linkedlist.h" />
     <ClInclude Include="..\..\src\misc.h" />
     <ClInclude Include="..\..\src\number_utils.h" />
