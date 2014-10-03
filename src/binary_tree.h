@@ -27,7 +27,7 @@ namespace kc {
 		void insert(const int val);
 		void remove(const int val);
 		void print() const;
-	private:
+	protected:
 		void append(NodePtr& curNode, const int val);
 		void print_helper(NodePtr node) const;
 		void remove_helper(NodePtr& node, const int val);
