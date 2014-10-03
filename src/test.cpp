@@ -3,7 +3,7 @@
 #include <string>
 
 #include "linkedlist.h"
-#include "misc.h"
+#include "binary_tree.h"
 #include "number_utils.h"
 #include "stringfunctions.h"
 
@@ -47,20 +47,21 @@ void main()
 
 void testBinaryTree()
 {
-	node * bt  = GenNodeBinaryTree(0);
-	BreadthFirstTraversal(bt);
+	sd::Node<int> * bt = NULL;
+	sd::GenNodeBinaryTree(&bt,0);
+	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	bt  = GenNodeBinaryTree(1);
-	BreadthFirstTraversal(bt);
+	sd::GenNodeBinaryTree(&bt,1);
+	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	bt  = GenNodeBinaryTree(2);
-	BreadthFirstTraversal(bt);
+	sd::GenNodeBinaryTree(&bt,2);
+	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	bt  = GenNodeBinaryTree(3);
-	BreadthFirstTraversal(bt);
+	sd::GenNodeBinaryTree(&bt,3);
+	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	bt  = GenNodeBinaryTree();
-	BreadthFirstTraversal(bt);
+	sd::GenNodeBinaryTree(&bt);
+	sd::BreadthFirstTraversal(bt);
 }
 
 void compareDoublesTest()
