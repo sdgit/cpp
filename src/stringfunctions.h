@@ -7,6 +7,8 @@ namespace sd {
 	bool ReverseString(char * theString, int size);
 
 	int UniqueElements(char * array, int size);
+
+	std::string longestCommonStr(std::string &first, std::string &second);
 }
 
 #endif

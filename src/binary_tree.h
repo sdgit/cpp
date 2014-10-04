@@ -83,10 +83,10 @@ namespace sd
 	template <typename T>
 	void BreadthFirstTraversal(Node<T> * top)
 	{
-		std::queue<Node<T> *> q;
-
 		if(!top)
 			return;
+
+		std::queue<Node<T> *> q;
 
 		Node<T> * s = top;
 		q.push(s);

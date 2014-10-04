@@ -1,4 +1,6 @@
 #include "stringfunctions.h"
+#include <string>
+//#include <iterator>
 
 namespace sd {
 
@@ -67,6 +69,33 @@ namespace sd {
 		delete [] unique;
 		return found;
 
+
+	}
+
+	std::string longestCommonStr(std::string &first, std::string &second)
+	{
+	
+		std::string prelimResult, result;
+
+		for(std::string::size_type i = 0; i < first.size(); i++)
+		{
+			if(first[i] == second[i])
+			{
+				prelimResult.append(1, first[i]);
+			}
+			else
+			{
+				prelimResult.empty();
+			}
+
+			if(prelimResult.size() > result.size())
+			{
+				result = prelimResult;
+			}
+		}
+			
+
+		return result;
 
 	}
 }

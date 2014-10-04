@@ -6,10 +6,12 @@
 #include "binary_tree.h"
 #include "number_utils.h"
 #include "stringfunctions.h"
+#include "IndustryClassifications.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
 void testBinaryTree();
+void testLargestCommonStr();
 
 void runStack();
 bool printStack(Element *head);
@@ -29,15 +31,10 @@ void main()
 
 	//testSortinglist();
 
-	testBinaryTree();
-	
+	//testBinaryTree();
+	//testLargestCommonStr();
 
-
-
-
-	int i = 2;
-	int j = 4 * PLUS1(i * 3);
-	std::cout<<"J:"<<j<<std::endl;
+	sd::readInput();
 
 	
 	std::cout<<"Press Any key to exit"<<std::endl;
@@ -62,6 +59,16 @@ void testBinaryTree()
 	std::cout<<std::endl;
 	sd::GenNodeBinaryTree(&bt);
 	sd::BreadthFirstTraversal(bt);
+}
+
+void testLargestCommonStr()
+{
+		std::string a = "can";
+		std::string b = "cabcan";
+		std::string result;
+
+		result = sd::longestCommonStr(a,b);
+		std::cout<<result;
 }
 
 void compareDoublesTest()
