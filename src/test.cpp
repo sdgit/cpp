@@ -24,21 +24,7 @@ extern Element * tail;
 
 void main()
 {
-	char pause = {0};
-
-	//compareDoublesTest();
-	//runStack();
-
-	//testSortinglist();
-
-	//testBinaryTree();
-	//testLargestCommonStr();
-
-	sd::readInput();
-
-	
-	std::cout<<"Press Any key to exit"<<std::endl;
-	std::cin.get(&pause, 1);
+	kc::readInput
 	return;
 }
 
@@ -63,8 +49,8 @@ void testBinaryTree()
 
 void testLargestCommonStr()
 {
-		std::string a = "can";
-		std::string b = "cabcan";
+		std::string a = "areyou";
+		std::string b = "howareyoudoing";
 		std::string result;
 
 		result = sd::longestCommonStr(a,b);
