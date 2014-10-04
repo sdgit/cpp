@@ -35,6 +35,7 @@ void main()
 	//testLargestCommonStr();
 
 	sd::readInput();
+	sd::findIndustries("Gemvax & Kael");
 
 	
 	std::cout<<"Press Any key to exit"<<std::endl;
