@@ -36,8 +36,11 @@ void main()
 
 	sd::readInput();
 	sd::printClassification();
+	sd::findCompanies("Health Care", "CompanyName");
+	sd::findCompanies("Large Pharmaceuticals", "MarketCap");
+	sd::findCompanies("Aerospace & Defense", "IndustryRevenue");
+	sd::findCompanies("Early Commercial Biotech", "CompanyName");
 	sd::findIndustries("Gemvax & Kael");
-	//sd::findCompanies("Health Care", "CompanyName");
 	
 	std::cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
