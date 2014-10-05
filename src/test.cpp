@@ -35,6 +35,7 @@ void main()
 	//testLargestCommonStr();
 
 	sd::readInput();
+	sd::printClassification();
 	sd::findIndustries("Gemvax & Kael");
 	//sd::findCompanies("Health Care", "CompanyName");
 	
