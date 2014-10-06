@@ -34,13 +34,20 @@ void main()
 	//testBinaryTree();
 	//testLargestCommonStr();
 
-	sd::readInput();
-	sd::printClassification();
-	sd::findCompanies("Health Care", "CompanyName");
-	sd::findCompanies("Large Pharmaceuticals", "MarketCap");
-	sd::findCompanies("Aerospace & Defense", "IndustryRevenue");
-	sd::findCompanies("Early Commercial Biotech", "CompanyName");
-	sd::findIndustries("Gemvax & Kael");
+	try
+	{
+		sd::readInput();
+		sd::printClassification();
+		sd::findCompanies("Health Care", "CompanyName");
+		sd::findCompanies("Large Pharmaceuticals", "MarketCap");
+		sd::findCompanies("Aerospace & Defense", "IndustryRevenue");
+		sd::findCompanies("Early Commercial Biotech", "CompanyName");
+		sd::findIndustries("Gemvax & Kael");
+	}
+	catch(std::bad_alloc& exc)
+	{
+	  std::cout<<"Exception: std::bad_alloc"<<std::endl;
+	}
 	
 	std::cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
