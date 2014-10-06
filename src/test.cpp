@@ -7,6 +7,7 @@
 #include "number_utils.h"
 #include "stringfunctions.h"
 #include "IndustryClassifications.h"
+#include "trie.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -24,22 +25,15 @@ extern Element * tail;
 
 void main()
 {
-	char pause = {0};
+	kc::Trie<int> t;
 
-	//compareDoublesTest();
-	//runStack();
+	t.add("kevin", 20);
+	t.add("ida", 21);
 
-	//testSortinglist();
+	std::cout << t.isMember("kevin") << std::endl;
+	std::cout << t.isMember("ida") << std::endl;
+	std::cout << t.isMember("id") << std::endl;
 
-	//testBinaryTree();
-	//testLargestCommonStr();
-
-	sd::readInput();
-	sd::findIndustries("Gemvax & Kael");
-	//sd::findCompanies("Health Care", "CompanyName");
-	
-	std::cout<<"Press Any key to exit"<<std::endl;
-	std::cin.get(&pause, 1);
 	return;
 }
 
