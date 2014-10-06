@@ -7,7 +7,6 @@
 #include "number_utils.h"
 #include "stringfunctions.h"
 #include "IndustryClassifications.h"
-#include "trie.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -25,15 +24,33 @@ extern Element * tail;
 
 void main()
 {
-	kc::Trie<int> t;
+	char pause = {0};
 
-	t.add("kevin", 20);
-	t.add("ida", 21);
+	//compareDoublesTest();
+	//runStack();
 
-	std::cout << t.isMember("kevin") << std::endl;
-	std::cout << t.isMember("ida") << std::endl;
-	std::cout << t.isMember("id") << std::endl;
+	//testSortinglist();
 
+	//testBinaryTree();
+	//testLargestCommonStr();
+
+	try
+	{
+		sd::readInput();
+		sd::printClassification();
+		sd::findCompanies("Health Care", "CompanyName");
+		sd::findCompanies("Large Pharmaceuticals", "MarketCap");
+		sd::findCompanies("Aerospace & Defense", "IndustryRevenue");
+		sd::findCompanies("Early Commercial Biotech", "CompanyName");
+		sd::findIndustries("Gemvax & Kael");
+	}
+	catch(std::bad_alloc& exc)
+	{
+	  std::cout<<"Exception: std::bad_alloc"<<std::endl;
+	}
+	
+	std::cout<<"Press Any key to exit"<<std::endl;
+	std::cin.get(&pause, 1);
 	return;
 }
 
