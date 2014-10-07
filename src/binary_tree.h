@@ -6,7 +6,7 @@
 
 
 namespace kc {
-	class BinaryTree
+	class BinarySearchTree
 	{
 	public:
 		class Node;
@@ -22,9 +22,9 @@ namespace kc {
 		};
 
 
-		BinaryTree();
-		BinaryTree(const int val);
-		~BinaryTree();
+		BinarySearchTree();
+		BinarySearchTree(const int val);
+		~BinarySearchTree();
 
 		void insert(const int val);
 		void remove(const int val);

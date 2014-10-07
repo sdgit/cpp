@@ -5,27 +5,27 @@
 namespace kc{
 	using namespace std;
 
-	BinaryTree::Node::Node(const int val)
+	BinarySearchTree::Node::Node(const int val)
 		: m_data(val) {}
 
-	BinaryTree::BinaryTree()
+	BinarySearchTree::BinarySearchTree()
 	{
 	}
 
-	BinaryTree::BinaryTree(const int val)
+	BinarySearchTree::BinarySearchTree(const int val)
 	{
 		m_root = NodePtr(new Node(val));
 	}
 
-	BinaryTree::~BinaryTree()
+	BinarySearchTree::~BinarySearchTree()
 	{
 	}
 
-	void BinaryTree::insert(const int val) {
+	void BinarySearchTree::insert(const int val) {
 		append(m_root, val);
 	}
 
-	void BinaryTree::append(NodePtr& curNode, const int val) {
+	void BinarySearchTree::append(NodePtr& curNode, const int val) {
 		if (curNode == nullptr){
 			curNode = NodePtr(new Node(val));
 		}
@@ -37,11 +37,11 @@ namespace kc{
 		}
 	}
 
-	void BinaryTree::print() const {
+	void BinarySearchTree::print() const {
 		print_helper(m_root);
 	}
 
-	void BinaryTree::print_helper(NodePtr node) const {
+	void BinarySearchTree::print_helper(NodePtr node) const {
 		if (node) {
 			if (node->m_left) {
 				print_helper(node->m_left);
@@ -55,11 +55,11 @@ namespace kc{
 		}
 	}
 
-	void BinaryTree::remove(const int val) {
+	void BinarySearchTree::remove(const int val) {
 		remove_helper(m_root, val);
 	}
 
-	void BinaryTree::remove_helper(NodePtr& node,  const int val) {
+	void BinarySearchTree::remove_helper(NodePtr& node, const int val) {
 		if (node){
 			if (node->m_data == val) {
 				if (node->m_left) {
