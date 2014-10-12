@@ -1,47 +1,23 @@
 #include "binary_tree.h"
 
+#include <queue>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 
 namespace kc{
 	using namespace std;
 
-	BinarySearchTree::Node::Node(const int val)
+	Node::Node(const int val)
 		: m_data(val) {}
 
-	BinarySearchTree::BinarySearchTree()
-	{
-	}
 
-	BinarySearchTree::BinarySearchTree(const int val)
-	{
-		m_root = NodePtr(new Node(val));
-	}
-
-	BinarySearchTree::~BinarySearchTree()
-	{
-	}
-
-	void BinarySearchTree::insert(const int val) {
-		append(m_root, val);
-	}
-
-	void BinarySearchTree::append(NodePtr& curNode, const int val) {
-		if (curNode == nullptr){
-			curNode = NodePtr(new Node(val));
-		}
-		else if (curNode->m_data > val) {
-			append(curNode->m_left, val);
-		}
-		else if (curNode->m_data < val) {
-			append(curNode->m_right, val);
-		}
-	}
-
-	void BinarySearchTree::print() const {
+	///********************Binary Tree Definitions*************************
+	void BinaryTree::print() const {
 		print_helper(m_root);
 	}
 
-	void BinarySearchTree::print_helper(NodePtr node) const {
+	void BinaryTree::print_helper(NodePtr node) const {
 		if (node) {
 			if (node->m_left) {
 				print_helper(node->m_left);
@@ -55,6 +31,126 @@ namespace kc{
 		}
 	}
 
+	bool BinaryTree::breadth_first_search(const int val) {
+		queue<NodePtr> nodes;
+		if (!m_root) {
+			cout << "Cannot find '" << val << "' using breadth first search" << endl;
+			return false;
+		}
+		nodes.push(m_root);
+
+		while (!nodes.empty()) {
+			NodePtr node = nodes.front();
+			nodes.pop();
+			if (node->m_data == val) {
+				cout << "Found '" << val << "' using breadth first search" << endl;
+				return true;
+			}
+			if (node->m_left)
+				nodes.push(node->m_left);
+			if (node->m_right)
+				nodes.push(node->m_right);
+		}
+		cout << "Cannot find '" << val << "' using breadth first search" << endl;
+		return false;
+	}
+
+	bool BinaryTree::insert(const int val) {
+		queue<NodePtr> nodes;
+		if (!m_root) {
+			m_root = make_shared<Node>(val);
+			return true;
+		}
+		nodes.push(m_root);
+
+		while (!nodes.empty()){
+			NodePtr node = nodes.front();
+			nodes.pop();
+			if (!node->m_left) {
+				node->m_left = make_shared<Node>(val);
+				return true;
+			}
+			else {
+				nodes.push(node->m_left);
+			}
+			if (!node->m_right) {
+				node->m_right = make_shared<Node>(val);
+				return true;
+			}
+			else {
+				nodes.push(node->m_right);
+			}
+		}
+		return false;
+	}
+
+	bool BinaryTree::breadth_first_traversal() const {
+		queue<NodePtr> nodes;
+		if (!m_root)
+			return false;
+		nodes.push(m_root);
+		//std::cout << "Breadth First Traversal:";
+		stringstream ss;
+		while (!nodes.empty()) {
+			NodePtr node = nodes.front();
+			nodes.pop();
+			ss << node->m_data << ", ";
+			if (node->m_left)
+				nodes.push(node->m_left);
+			if (node->m_right)
+				nodes.push(node->m_right);
+		}
+		
+		const string str = ss.str();
+		if (!str.empty()) {
+			cout << "Breadth First Traversal: " << str.substr(0, str.size() - 2) << endl;
+		}
+		return false;
+	}
+
+	void BinaryTree::remove(const int val) {
+		std::cout << "BinaryTree::remove Not Implemented" << std::endl;
+	}
+
+	///***************Binary Search Tree Definitions*************************
+	BinarySearchTree::BinarySearchTree()
+	{
+	}
+
+	BinarySearchTree::BinarySearchTree(const int val)
+	{
+		m_root = NodePtr(new Node(val));
+	}
+
+	void BinarySearchTree::insert(const int val) {
+		append(m_root, val);
+	}
+
+	bool BinarySearchTree::append(NodePtr& curNode, const int val) {
+		if (curNode == nullptr){
+			curNode = NodePtr(new Node(val));
+			return true;
+		}
+		else if (curNode->m_data > val) {
+			if (append(curNode->m_left, val)) {
+				curNode->m_left->m_parent = curNode;
+			}
+		}
+		else if (curNode->m_data < val) {
+			if (append(curNode->m_right, val)) {
+				curNode->m_right->m_parent = curNode;
+			}
+		}
+	}
+
+	NodePtr BinarySearchTree::find_largest_node(NodePtr root){
+		if (!root)
+			return nullptr;
+		else {
+			return (root->m_right) ? find_largest_node(root->m_right) : root;
+		}
+	}
+
 	void BinarySearchTree::remove(const int val) {
 		remove_helper(m_root, val);
 	}
@@ -63,8 +159,20 @@ namespace kc{
 		if (node){
 			if (node->m_data == val) {
 				if (node->m_left) {
-					node.swap(node->m_left);
-					node->m_left.reset();
+					NodePtr replacement = find_largest_node(node->m_left);
+					if (replacement != nullptr) {
+						if (replacement->m_left) {
+							replacement->m_parent->m_right = replacement->m_left;
+						}
+						else {
+							replacement->m_parent->m_right.reset();
+						}
+						node.swap(replacement);
+						node->m_left = replacement->m_left;
+						node->m_right = replacement->m_right;
+						node->m_parent = replacement->m_parent;
+						replacement.reset();
+					}
 				}
 				else if (node->m_right) {
 					node.swap(node->m_right);
@@ -80,15 +188,13 @@ namespace kc{
 			else{
 				remove_helper(node->m_right, val);
 			}
-
 		}
 	}
-
-	
 }
+
 
 namespace sd{
 
-	
+
 
 }
