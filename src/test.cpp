@@ -6,7 +6,7 @@
 #include "binary_tree.h"
 #include "number_utils.h"
 #include "stringfunctions.h"
-#include "IndustryClassifications.h"
+//#include "IndustryClassifications.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -33,7 +33,15 @@ void main()
 
 	//testBinaryTree();
 	//testLargestCommonStr();
+	
+	std::cout<<"Press Any key to exit"<<std::endl;
+	std::cin.get(&pause, 1);
+	return;
+}
 
+/*
+void testIndustryTaxonomy()
+{
 	try
 	{
 		sd::readInput();
@@ -48,28 +56,24 @@ void main()
 	{
 	  std::cout<<"Exception: std::bad_alloc"<<std::endl;
 	}
-	
-	std::cout<<"Press Any key to exit"<<std::endl;
-	std::cin.get(&pause, 1);
-	return;
-}
+}*/
 
 void testBinaryTree()
 {
-	sd::Node<int> * bt = NULL;
-	sd::GenNodeBinaryTree(&bt,0);
+	sd::BTNode<int> * bt = NULL;
+	sd::GenNodeBinaryTree<int>(&bt,0);
 	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	sd::GenNodeBinaryTree(&bt,1);
+	sd::GenNodeBinaryTree<int>(&bt,1);
 	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	sd::GenNodeBinaryTree(&bt,2);
+	sd::GenNodeBinaryTree<int>(&bt,2);
 	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	sd::GenNodeBinaryTree(&bt,3);
+	sd::GenNodeBinaryTree<int>(&bt,3);
 	sd::BreadthFirstTraversal(bt);
 	std::cout<<std::endl;
-	sd::GenNodeBinaryTree(&bt);
+	sd::GenNodeBinaryTree<int>(&bt);
 	sd::BreadthFirstTraversal(bt);
 }
 

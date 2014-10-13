@@ -36,9 +36,6 @@
     <ClCompile Include="..\..\src\binary_tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\IndustryClassifications.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\linkedlist.h">
@@ -57,9 +54,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\binary_tree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\IndustryClassifications.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

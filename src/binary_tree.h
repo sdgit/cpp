@@ -4,6 +4,8 @@
 #include <queue>
 #include "time.h"
 
+//http://codercareer.blogspot.com/p/binary-tree-interview-questions.html
+
 
 namespace kc {
 	class Node;
@@ -57,26 +59,27 @@ namespace sd
 {
 
 	template<typename T>
-	class Node {
+	class BTNode {
 	public:
+		typedef BTNode<T> * NodePtr;
 		T data;
-		Node<T>* left;
-		Node<T>* right;
-		Node() :left(NULL), right(NULL), data(NULL){}
-		Node(int val) :left(NULL), right(NULL), data(val){}
+		NodePtr left;
+		NodePtr right;
+		BTNode() :left(nullptr), right(nullptr), data(NULL){}
+		BTNode(T val) :left(nullptr), right(nullptr), data(val){}
 	};
 
 	template<typename T>
-	void GenNodeBinaryTree(Node<T> ** root, int size = 100)
+	void GenNodeBinaryTree(typename BTNode<T>::NodePtr* root, int size = 100)
 	{
 		if (size <= 0)
 			return;
 
 		srand(time(NULL));
-		std::queue<Node<T> * > q;
-		*root = new Node<T>(rand());
+		std::queue<BTNode<T> * > q;
+		*root = new BTNode<T>(rand());
 		q.push(*root);
-		Node<T> * curr;
+		BTNode<T> * curr;
 
 
 		for (int i = 0; i < size; i += 2)
@@ -86,25 +89,25 @@ namespace sd
 
 			if (i >= (size - 1))
 				break;
-			curr->left = new Node<T>(rand());
+			curr->left = new BTNode<T>(rand());
 			q.push(curr->left);
 			if (i >= (size - 2))
 				break;
-			curr->right = new Node<T>(rand());
+			curr->right = new BTNode<T>(rand());
 			q.push(curr->right);
 		}
 	}
 
 
 	template <typename T>
-	void BreadthFirstTraversal(Node<T> * top)
+	void BreadthFirstTraversal(BTNode<T> * top)
 	{
 		if (!top)
 			return;
 
-		std::queue<Node<T> *> q;
+		std::queue<BTNode<T> *> q;
 
-		Node<T> * s = top;
+		BTNode<T> * s = top;
 		q.push(s);
 
 		while (!q.empty())

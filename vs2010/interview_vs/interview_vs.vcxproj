@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\binary_tree.cpp" />
-    <ClCompile Include="..\..\src\IndustryClassifications.cpp" />
     <ClCompile Include="..\..\src\linkedlist.cpp" />
     <ClCompile Include="..\..\src\misc.cpp" />
     <ClCompile Include="..\..\src\number_utils.cpp" />
@@ -22,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\binary_tree.h" />
-    <ClInclude Include="..\..\src\IndustryClassifications.h" />
     <ClInclude Include="..\..\src\linkedlist.h" />
     <ClInclude Include="..\..\src\misc.h" />
     <ClInclude Include="..\..\src\number_utils.h" />
