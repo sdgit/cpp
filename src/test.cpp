@@ -7,6 +7,8 @@
 #include "number_utils.h"
 #include "stringfunctions.h"
 //#include "IndustryClassifications.h"
+#include "sort.h"
+#include "misc.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -16,6 +18,7 @@ void testLargestCommonStr();
 void runStack();
 bool printStack(Element *head);
 void testSortinglist();
+void testSort();
 
 extern Element * head;
 extern Element * tail;
@@ -33,10 +36,19 @@ void main()
 
 	//testBinaryTree();
 	//testLargestCommonStr();
+
+	testSort();
 	
 	std::cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
 	return;
+}
+
+void testSort()
+{
+	int test[] = {1,12,5,26,7,14,3,7,2};
+	sd::printArray(test);
+	sd::QuickSort(test,0 ,8);
 }
 
 /*
@@ -79,7 +91,7 @@ void testBinaryTree()
 
 void testLargestCommonStr()
 {
-		std::string a = "can";
+		std::string a = "cancabc";
 		std::string b = "cabcan";
 		std::string result;
 

@@ -2,6 +2,8 @@
 #include <string>
 //#include <iterator>
 
+using std::string;
+
 namespace sd {
 
 	bool ReverseString(char theString[], int size)
@@ -72,12 +74,13 @@ namespace sd {
 
 	}
 
-	std::string longestCommonStr(std::string &first, std::string &second)
+	string longestCommonStr(string &first, string &second)
 	{
 	
-		std::string prelimResult, result;
+		//wrong, use suffix tree
+		string prelimResult, result;
 
-		for(std::string::size_type i = 0; i < first.size(); i++)
+		for(string::size_type i = 0; i < first.size(); i++)
 		{
 			if(first[i] == second[i])
 			{
