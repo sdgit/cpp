@@ -6,19 +6,19 @@
 namespace sd
 {
 	template<typename T>
-	void printArray(T theArray[], int size )
+	void printArray(T theArray[], int start, int end )
 	{
 		std::cout<<"Array: [";
 
-		for (int i = 0; i < size; i++)
+		for (int i = start; i < end; i++)
 		{
 			std::cout << theArray[i];
-			if (i < size - 1)
+			if (i < end - 1)
 			{
 				std::cout << ",";
 			}
 		}
-		std::cout<<"]";
+		std::cout<<"]"<<std::endl;
 	}
 }
 

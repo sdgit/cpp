@@ -47,8 +47,10 @@ void main()
 void testSort()
 {
 	int test[] = {1,12,5,26,7,14,3,7,2};
-	sd::printArray(test, sizeof(test) / sizeof(test[0]));
-	sd::QuickSort(test,0 ,8);
+	int size = sizeof(test) / sizeof(test[0]);
+	sd::printArray(test,0, size);
+	sd::QuickSort(test, 0, size-1);
+	//sd::printArray(test, 0, size);
 }
 
 /*

@@ -3,7 +3,7 @@
 
 namespace sd
 {
-	void QuickSort(void * array, int start, int end);
+	void QuickSort(int theArray[], int left, int right);
 }
 
 #endif
