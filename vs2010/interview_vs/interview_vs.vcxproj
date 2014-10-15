@@ -12,22 +12,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\binary_tree.cpp" />
-    <ClCompile Include="..\..\src\IndustryClassifications.cpp" />
     <ClCompile Include="..\..\src\linkedlist.cpp" />
     <ClCompile Include="..\..\src\misc.cpp" />
     <ClCompile Include="..\..\src\number_utils.cpp" />
+    <ClCompile Include="..\..\src\sort.cpp" />
     <ClCompile Include="..\..\src\stack.cpp" />
     <ClCompile Include="..\..\src\stringfunctions.cpp" />
     <ClCompile Include="..\..\src\test.cpp" />
+    <ClCompile Include="..\..\src\trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\binary_tree.h" />
-    <ClInclude Include="..\..\src\IndustryClassifications.h" />
     <ClInclude Include="..\..\src\linkedlist.h" />
     <ClInclude Include="..\..\src\misc.h" />
     <ClInclude Include="..\..\src\number_utils.h" />
+    <ClInclude Include="..\..\src\sort.h" />
     <ClInclude Include="..\..\src\stack.h" />
     <ClInclude Include="..\..\src\stringfunctions.h" />
+    <ClInclude Include="..\..\src\trie.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3FC3EBD6-9B14-4DE6-BEF3-E51BD3FB1566}</ProjectGuid>

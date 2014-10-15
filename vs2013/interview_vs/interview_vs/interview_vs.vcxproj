@@ -69,6 +69,7 @@
     <ClCompile Include="..\..\..\src\linkedlist.cpp" />
     <ClCompile Include="..\..\..\src\misc.cpp" />
     <ClCompile Include="..\..\..\src\number_utils.cpp" />
+    <ClCompile Include="..\..\..\src\sort.cpp" />
     <ClCompile Include="..\..\..\src\stack.cpp" />
     <ClCompile Include="..\..\..\src\stringfunctions.cpp" />
     <ClCompile Include="..\..\..\src\test.cpp" />
@@ -79,6 +80,7 @@
     <ClInclude Include="..\..\..\src\linkedlist.h" />
     <ClInclude Include="..\..\..\src\misc.h" />
     <ClInclude Include="..\..\..\src\number_utils.h" />
+    <ClInclude Include="..\..\..\src\sort.h" />
     <ClInclude Include="..\..\..\src\stack.h" />
     <ClInclude Include="..\..\..\src\stringfunctions.h" />
     <ClInclude Include="..\..\..\src\trie.h" />

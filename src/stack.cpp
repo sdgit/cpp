@@ -1,174 +1,179 @@
 #include "stack.h"
 
-using namespace std;
+using std::cout;
 
-Element * head = 0;
-Element * tail = 0;
-
-bool push(Element **stack, void * data)
+namespace sd
 {
-    Element* elem = new(std::nothrow) Element;
 
-    if(!elem) return (false);
+	void Stack::push(void * data)
+	{
+		NodePtr node = new Node();
 
-    elem->next = *stack;
-    elem->data = data;
+		node->next = m_head;
+		node->data = data;
+		m_head = node;
+	}
 
-    if(!elem->next) tail = elem;
+	void Stack::pop()
+	{
+		if (NULL != m_head)
+		{
+			NodePtr node = m_head;
+			m_head = m_head->next;
 
-    *stack = elem;
-    head = elem;
+			delete node;
+		}
+	}
 
-    return (true);
-}
 
-bool pop(Element **stack, void ** data)
-{
-    Element* elem = *stack;
+	void Stack::erase()
+	{
+		NodePtr curr = m_head;
+		NodePtr next = NULL;
+		while (curr != NULL)
+		{
+			next = curr->next;
+			std::cout << "deleting :" << (int)curr->data << std::endl;
+			delete curr;
+			curr = next;
+		}
+		m_head = NULL;
+		m_tail = NULL;
+	}
 
-    if(!elem) return (false);
+	void Stack::print()
+	{
+		NodePtr curr = m_head;
+		cout << "[";
+		while (NULL != curr)
+		{
+			cout << (int)curr->data;
+			curr = curr->next;
+			if (NULL != curr)
+				cout << ", ";
+		}
+		cout << "]" << std::endl;
+	}
 
-    *data = elem->data;
-    *stack = elem->next;
+	void *& Stack::top()
+	{
+		if (NULL == m_head)
+			return (new Node())->data; //sd1 bug
+		return m_head->data;
+	}
 
-    head = *stack;
+	/*
+	bool remove(NodePtr elem)
+	{
+		Element *currPos = head;
+		if (!elem) return (false);
 
-    if(!head) tail = head;
+		if (head == elem)
+		{
+			head = elem->next;
+			std::cout << "removing ..." << (int)elem->data << std::endl;
+			delete elem;
 
-    delete elem;
+			if (!head) tail = 0;
 
-    return (true);
-}
+			return (true);
+		}
 
-bool createStack(Element** stack)
-{
-    stack = 0;
-    return true;
-}
+		while (currPos)
+		{
+			if (currPos->next == elem)
+			{
+				currPos->next = elem->next;
+				std::cout << "removing ..." << (int)elem->data << std::endl;
+				delete elem;
+				return (true);
+			}
+			currPos = currPos->next;
+		}
 
-bool deleteStack(Element** stack)
-{
-    Element * next;
-    while(*stack != NULL)
-    {
-        next = (*stack)->next;
-        std::cout<<"deleting ..."<<(int)(*stack)->data<<std::endl;
-        delete *stack;
-        *stack = next;
+		return (false);
 
-    }
-    return true;
-}
+	}
 
-bool remove(Element* elem)
-{
-    Element *currPos = head;
-    if(!elem) return (false);
+	bool insertAfter(NodePtr elem, int data)
+	{
+		NodePtr currPos = head;
+		NodePtr newElem = new Element;
 
-    if(head == elem)
-    {
-        head = elem->next;
-        std::cout<<"removing ..."<<(int)elem->data<<std::endl;
-        delete elem;
+		if (!newElem) return (false);
 
-        if(!head) tail = 0;
+		newElem->data = (void *)data;
 
-        return (true);
-    }
+		if (!elem)
+		{
+			newElem->next = head;
+			head = newElem;
+			std::cout << "inserting:" << (int)newElem->data << " before head" << std::endl;
+			if (!newElem->next)
+				tail = newElem;
+			return (true);
+		}
 
-    while(currPos)
-    {
-        if(currPos->next == elem)
-        {
-            currPos->next = elem->next;
-            std::cout<<"removing ..."<<(int)elem->data<<std::endl;
-            delete elem;
-            return (true);
-        }
-        currPos = currPos->next;
-    }
+		while (currPos)
+		{
+			if (currPos == elem)
+			{
+				if (!currPos->next)
+					tail = newElem;
+				newElem->next = currPos->next;
+				currPos->next = newElem;
+				std::cout << "inserting:" << (int)newElem->data << " after:" << (int)currPos->data << std::endl;
+				return (true);
+			}
+			currPos = currPos->next;
+		}
+		delete newElem;
+		return (false);
+	}
+	
+	bool GetMthToLastElement(int m, NodePtr head, NodePtr elem)
+	{
+		NodePtr currPos = head;
+		int numPositions = 0;
+		int posDesired = 0;
 
-    return (false);
+		if (!head) //empty list
+		{
+			elem = 0;
+			return (false);
+		}
 
-}
+		//count how many positions there are
+		while (currPos)
+		{
+			numPositions++;
+			currPos = currPos->next;
+		}
 
-bool insertAfter(Element *elem, int data)
-{
-    Element *currPos = head;
-    Element *newElem = new Element;
+		if (m > numPositions)
+		{
+			elem = 0;
+			return (false);
+		}
 
-    if(!newElem) return (false);
+		posDesired = numPositions - m;
 
-    newElem->data = (void *) data;
+		currPos = head;
+		numPositions = 0;
 
-    if(!elem)
-    {
-        newElem->next = head;
-        head = newElem;
-        std::cout<<"inserting:"<<(int)newElem->data<<" before head"<<std::endl;
-        if(!newElem->next)
-            tail = newElem;
-        return (true);
-    }
+		while (currPos)
+		{
+			if (numPositions == posDesired)
+			{
+				elem = currPos;
+				return (true);
+			}
 
-    while(currPos)
-    {
-        if(currPos == elem)
-        {
-            if(!currPos->next)
-                tail = newElem;
-            newElem->next = currPos->next;
-            currPos->next = newElem;
-            std::cout<<"inserting:"<<(int)newElem->data<<" after:"<<(int)currPos->data<<std::endl;
-            return (true);
-        }
-        currPos = currPos->next;
-    }
-    delete newElem;
-    return (false);
-}
+			numPositions++;
+			currPos = currPos->next;
+		}
+	}*/
 
-bool GetMthToLastElement(int m, Element * head, Element * elem)
-{
-    Element *currPos = head;
-    int numPositions = 0;
-    int posDesired = 0;
-
-    if(!head) //empty list
-    {
-        elem = 0;
-        return (false);
-    }
-
-    //count how many positions there are
-    while(currPos)
-    {
-        numPositions++;
-        currPos = currPos->next;
-    }
-
-    if (m > numPositions)
-    {
-        elem = 0;
-        return (false);
-    }
-
-    posDesired = numPositions - m;
-
-    currPos = head;
-    numPositions = 0;
-
-    while(currPos)
-    {
-        if(numPositions == posDesired)
-        {
-            elem = currPos;
-            return (true);
-        }
-
-        numPositions++;
-        currPos = currPos->next;
-    }
 }
 
 

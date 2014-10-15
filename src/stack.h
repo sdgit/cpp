@@ -2,27 +2,42 @@
 #define STACK_H
 
 #include <iostream>
+#include "linkedlist.h"
 
-typedef struct Element
+namespace sd
 {
-    struct Element* next;
-    void * data;
-    Element():next(NULL), data(0) {}
-} Element;
 
+	class Stack
+	{
+		struct Node
+		{
+			struct Node* next;
+			void * data;
+			Node() :next(NULL), data(NULL) {}
+		};
 
-bool push(Element **stack, void * data);
+		typedef struct Node* NodePtr;
 
-bool createStack(Element** stack);
+	public:
+		Stack() : m_head(NULL), m_tail(NULL), m_size(0){}
+		void push(void * data);
+		void pop();
+		void*& top();
+		unsigned int size() { return m_size; }
+		void erase();
+		void print();
+	private:
+		NodePtr m_head;
+		NodePtr m_tail;
+		unsigned int m_size;
+	};
 
-bool deleteStack(Element** stack);
+	//bool remove(Element* elem);
 
-bool pop(Element **stack, void ** data);
+	//bool insertAfter(Element *elem, int data);
 
-bool remove(Element* elem);
+	//bool GetMthToLastElement(int m, Element * head, Element * elem);
 
-bool insertAfter(Element *elem, int data);
-
-bool GetMthToLastElement(int m, Element * head, Element * elem);
+}
 
 #endif
