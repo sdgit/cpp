@@ -9,37 +9,37 @@
 //#include "IndustryClassifications.h"
 #include "sort.h"
 #include "misc.h"
+#include "stack.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
 void testBinaryTree();
 void testLargestCommonStr();
 
-void runStack();
-bool printStack(Element *head);
+void testStack();
 void testSortinglist();
 void testSort();
 
-extern Element * head;
-extern Element * tail;
 
 #define PLUS1(a) ((a) + 1)
+
+using std::cout;
 
 void main()
 {
 	char pause = {0};
 
 	//compareDoublesTest();
-	//runStack();
+	testStack();
 
 	//testSortinglist();
 
 	//testBinaryTree();
 	//testLargestCommonStr();
 
-	testSort();
+	//testSort();
 	
-	std::cout<<"Press Any key to exit"<<std::endl;
+	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
 	return;
 }
@@ -68,7 +68,7 @@ void testIndustryTaxonomy()
 	}
 	catch(std::bad_alloc& exc)
 	{
-	  std::cout<<"Exception: std::bad_alloc"<<std::endl;
+	  cout<<"Exception: std::bad_alloc"<<std::endl;
 	}
 }*/
 
@@ -77,16 +77,16 @@ void testBinaryTree()
 	sd::BTNode<int> * bt = NULL;
 	sd::GenNodeBinaryTree<int>(&bt,0);
 	sd::BreadthFirstTraversal(bt);
-	std::cout<<std::endl;
+	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt,1);
 	sd::BreadthFirstTraversal(bt);
-	std::cout<<std::endl;
+	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt,2);
 	sd::BreadthFirstTraversal(bt);
-	std::cout<<std::endl;
+	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt,3);
 	sd::BreadthFirstTraversal(bt);
-	std::cout<<std::endl;
+	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt);
 	sd::BreadthFirstTraversal(bt);
 }
@@ -98,7 +98,7 @@ void testLargestCommonStr()
 		std::string result;
 
 		result = sd::longestCommonStr(a,b);
-		std::cout<<result;
+		cout<<result;
 }
 
 void compareDoublesTest()
@@ -118,119 +118,114 @@ void printDoubleResult(bool result)
 {
 	if(false == result)
 	{
-		std::cout<<"Doubles are NOT equal"<<std::endl;
+		cout<<"Doubles are NOT equal"<<std::endl;
 	}
 	else
 	{
-		std::cout<<"Doubles are equal"<<std::endl;
+		cout<<"Doubles are equal"<<std::endl;
 	}
 }
 
-void runStack()
+void testLinkedList()
 {
-    int elements[10] = {10,9,8,7,16,5,3,3,12,1};
-    //int elements[1] = {1};
-    //int elements[2] = {2,1};
-    void * data;
-    Element *elemToRemove = new Element(); //sd
+	/*
+	sd::NodePtr elemToRemove = new sd::Element(); 
 	elemToRemove->data = (void *)9;
 
-    int arraySize = sizeof(elements)/sizeof(int);
-    for (int i = 0; i < arraySize; i++)
-    {
-        if (!push(&head, (void *)elements[i]))
-        {
-            std::cout<< "error push"<<std::endl;
-        }
-        else
-        {
-            std::cout<<"push("<<elements[i]<<")"<<std::endl;
-        }
-    }
+	for (int k = 6; k < 10; k++)
+	{
+		if (!sd::insertAfter(0, elements[k])) cout << "error insertAfter" << std::endl;
+	}
 
-    std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
+	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    for (int j = 0; j < 4; j++)
-    {
-        if (!pop(&head, &data)) std::cout<< "error pop"<<std::endl;
+	sd::GetMthToLastElement(1, myStack, elemToRemove);
 
-        std::cout<< "pop("<<(int)(data)<<")"<<std::endl;
-    }
+	cout << "remove returned:" << remove(elemToRemove) << std::endl;
 
-    std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
+	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    for (int k = 6; k < 10; k++)
-    {
-        if (!insertAfter(0, elements[k])) std::cout<< "error insertAfter"<<std::endl;
-    }
+	sd::ReverseM(&myStack);
 
-    std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
+	cout << "reversem printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    GetMthToLastElement(1, head, elemToRemove);
+	sd::ReverseT(&myStack);
 
-    std::cout<< "remove returned:"<<remove(elemToRemove)<<std::endl;
+	cout << "reverset printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
+	sd::Sort(&myStack);
 
-    sd::ReverseM(&head);
+	cout << "sorted printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    std::cout<< "reversem printStack returned:"<<(bool)printStack(head)<<std::endl;
+	sd::pop(&myStack, &data);
 
-    sd::ReverseT(&head);
+	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    std::cout<< "reverset printStack returned:"<<(bool)printStack(head)<<std::endl;
+	sd::Element tempElem;
+	tempElem.data = (void*)16;
+	sd::SortedInsert(&myStack, &tempElem);
 
-    sd::Sort(&head);
+	cout << "sorted insert printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    std::cout<< "sorted printStack returned:"<<(bool)printStack(head)<<std::endl;
+	sd::ReverseT(&myStack);
 
-    pop(&head, &data);
+	cout << "reverset printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
 
-    std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
+	cout << "deleteStack returned:" << (bool)sd::deleteStack(&myStack) << std::endl;
 
-    Element tempElem;
-    tempElem.data = (void*)16;
-    sd::SortedInsert(&head, &tempElem);
+	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
+	*/
+}
 
-    std::cout<< "sorted insert printStack returned:"<<(bool)printStack(head)<<std::endl;
+void testStack()
+{
+	int elements[10] = { 10, 9, 8, 7, 16, 5, 3, 3, 12, 1 };
+	//int elements[1] = {1};
+	//int elements[2] = {2,1};
+	void * data;
+	int arraySize = sizeof(elements) / sizeof(int);
+	sd::Stack s;
 
-    sd::ReverseT(&head);
+	for (int i = 0; i < arraySize; i++)
+	{
+		s.push((void *)elements[i]);
+	}
 
-    std::cout<< "reverset printStack returned:"<<(bool)printStack(head)<<std::endl;
+	cout << "Stack Created: ";
+	s.print();
+	cout << std::endl;
 
-    std::cout<< "deleteStack returned:"<<(bool)deleteStack(&head)<<std::endl;
+	for (int j = 0; j < 4; j++)
+	{
+		s.pop();
+	}
+	cout << "Stack after being popped 4 times: ";
+	s.print();
 
-    std::cout<< "printStack returned:"<<(bool)printStack(head)<<std::endl;
+	data = s.top();
+	cout << "Stack top is now: " << (int)data << std::endl;
+
+	s.erase();
+
+	cout << "Stack erased: ";
+	s.print();
+
+	data = s.top();
+	cout << "Stack top is now: " << data << std::endl;
+}
+
+void testReverseLink()
+{  
 
     char hello[] = "HELL";
     sd::ReverseString(hello, sizeof(hello)-1);
 
-    std::cout<< "HELL reversed = "<< hello <<std::endl;
+    cout<< "HELL reversed = "<< hello <<std::endl;
 
-    std::cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
-
-
+    cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
+	
 }
 
-bool printStack(Element *head)
-{
-    int data;
-    #ifndef USE_CLASSES
-    Element * elem = head;
-    #else
-    StackClass::Element * elem = head;
-    #endif
-
-    if(!head) return (false);
-
-    while(elem)
-    {
-        data = (int)(elem->data);
-        std::cout<<"("<<data<<")"<<std::endl;
-        elem= elem->next;
-    }
-    return true;
-}
 
 void testSortinglist()
 {
@@ -267,7 +262,7 @@ void testSortinglist()
 	for (it = test0.begin();
 		 it != test0.end(); ++it)
 	{
-		std::cout << "test0:" << *it<< std::endl;
+		cout << "test0:" << *it<< std::endl;
 	}
 
 	// Sort the std::list
@@ -277,7 +272,7 @@ void testSortinglist()
 	for (it = test1.begin();
 		 it != test1.end(); ++it)
 	{
-		std::cout << "test1:" << *it<< std::endl;
+		cout << "test1:" << *it<< std::endl;
 	}
 
 }

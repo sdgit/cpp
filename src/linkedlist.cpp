@@ -2,88 +2,113 @@
 
 namespace sd {
 
+	void LinkedList::push_back(void * data)
+	{
+		NodePtr elem = new Node();
+		elem->next = NULL;
+		elem->data = data;
 
+		if (0 == m_size)
+		{
+			m_head = elem;
+		}
+		else
+		{
+			m_tail->next = elem;
+			m_tail = elem;
+		}
+		++m_size;
+	}
+
+	void LinkedList::pop_back()
+	{
+
+	}
+
+	void LinkedList::pop_front()
+	{
+		if (NULL != m_head)
+		{
+			NodePtr next = m_head->next;
+			delete m_head;
+			m_head = next;
+		}
+
+	}
+
+	void*& LinkedList::back()
+	{
+		return m_tail->data;
+	}
+
+	void*& LinkedList::front()
+	{
+		return m_head->data;
+	}
+
+
+	void LinkedList::reverse()
+	{
+
+		NodePtr curr = m_head;
+		NodePtr next = NULL;
+		NodePtr prev = NULL;
+
+		m_tail = curr;
+
+		for (int i = 0; i < m_size; i++)
+		{
+			
+			next = curr->next;
+			curr->next = prev;
+			prev = curr;
+
+		}
+
+		m_head = prev;
+
+	}
+
+
+	/*
 	//memory hog, but big O (2N)
-	bool ReverseM(Element ** head)
+	bool LinkedList::ReverseM(NodePtr* head)
 	{
-		if(!*head)
-		{
-			return false;
-		}
-
-		struct Element *currPos = *head;
-		struct Element * temp, *previous;
-
-
-		temp = new Element;
-		temp->data = currPos->data;
-		temp->next = NULL;
-
-		previous = currPos;
-		currPos = currPos->next;
-		delete previous;
-		previous = temp;
-
-		while( currPos != NULL)
-		{
-			temp = new Element;
-			temp->data = currPos->data;
-			temp->next = previous;
-
-			previous = currPos;
-			currPos = currPos->next;
-			delete previous;
-			previous = temp;
-		}
-
-		*head = temp;
-
-		return (true);
+	if(!*head)
+	{
+	return false;
 	}
 
-	bool ReverseT(Element ** head)
+	NodePtr currPos = *head;
+	NodePtr temp, previous;
+
+	temp = new Element;
+	temp->data = currPos->data;
+	temp->next = NULL;
+
+	previous = currPos;
+	currPos = currPos->next;
+	delete previous;
+	previous = temp;
+
+	while( currPos != NULL)
 	{
-		if(!*head)
-		{
-			return false;
-		}
+	temp = new Element;
+	temp->data = currPos->data;
+	temp->next = previous;
 
-		struct Element *currPos = *head;
-		struct Element * temp;
-		struct Element swap;
-		struct Element * end = NULL;
-
-		while(currPos->next != end)
-		{
-			temp = currPos->next;
-			while(temp->next != end)
-			{
-			  temp = temp->next;
-			}
-
-			if(currPos == temp)
-			{
-				break;
-			}
-
-			end = temp;
-			swap.data = temp->data;
-			temp->data = currPos->data;
-			currPos->data = swap.data;
-
-			if(currPos->next == end)
-			{
-				break;
-			}
-			currPos = currPos->next;
-
-
-		}
-
-		return (true);
+	previous = currPos;
+	currPos = currPos->next;
+	delete previous;
+	previous = temp;
 	}
 
-	bool Sort(Element** head)
+	*head = temp;
+
+	return (true);
+	}
+	
+	bool Sort(LinkedList::NodePtr* head)
 	{
 		int tempData = 0;
 		Element *currPos = *head;
@@ -121,7 +146,7 @@ namespace sd {
 
 	//needs to be reduced and simplified
 	//also adding to tail gives error
-	bool SortedInsert(Element **head, Element * data)
+	bool LinkedList::SortedInsert(NodePtr*head, Element * data)
 	{
 		Element * currPos = *head;
 		Element * prev = currPos;
@@ -173,5 +198,5 @@ namespace sd {
 		}
 
 		return (true);
-	}
+	}*/
 }

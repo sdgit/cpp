@@ -1,16 +1,43 @@
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 #include <iostream>
 #include <memory>
-#include "stack.h"
 
 namespace sd {
 
-	bool ReverseM(Element ** head);
+	class LinkedList
+	{
+		struct Node
+		{
+			struct Node* next;
+			void * data;
+			Node() :next(NULL), data(NULL) {}
+		};
 
-	bool ReverseT(Element ** head);
+		typedef struct Node* NodePtr;
 
-	bool Sort(Element** head);
+	public:
+		LinkedList() : m_head(NULL), m_tail(NULL), m_size(0){}
+		void push_back(void * data);
+		void pop_back();
+		void pop_front();
+		void*& back();
+		void*& front();
+		void reverse();
+		unsigned int size() { return m_size; }
+	private:
+		NodePtr m_head;
+		NodePtr m_tail;
+		unsigned int m_size;
+	};
 
-	bool SortedInsert(Element **head, Element * data);
+	
+	//bool ReverseM(NodePtr* head);
+
+	//bool Sort(NodePtr* head);
+
+	//bool SortedInsert(NodePtr*head, NodePtr data);
 }
 
 namespace kc{
@@ -113,3 +140,5 @@ namespace kc{
 		size_t m_size;
 	};
 }
+
+#endif
