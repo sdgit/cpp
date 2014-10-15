@@ -3,6 +3,7 @@
 #include <memory>
 #include <queue>
 #include "time.h"
+#include <stack>
 
 //http://codercareer.blogspot.com/p/binary-tree-interview-questions.html
 
@@ -77,7 +78,7 @@ namespace sd
 
 		srand(time(NULL));
 		std::queue<BTNode<T> * > q;
-		*root = new BTNode<T>(rand());
+		*root = new BTNode<T>(rand()%100);
 		q.push(*root);
 		BTNode<T> * curr;
 
@@ -89,11 +90,11 @@ namespace sd
 
 			if (i >= (size - 1))
 				break;
-			curr->left = new BTNode<T>(rand());
+			curr->left = new BTNode<T>(rand()%100);
 			q.push(curr->left);
 			if (i >= (size - 2))
 				break;
-			curr->right = new BTNode<T>(rand());
+			curr->right = new BTNode<T>(rand()%100);
 			q.push(curr->right);
 		}
 	}
@@ -107,8 +108,8 @@ namespace sd
 
 		std::queue<BTNode<T> *> q;
 
-		BTNode<T> * s = top;
-		q.push(s);
+		BTNode<T> * s;
+		q.push(top);
 
 		while (!q.empty())
 		{
@@ -119,6 +120,31 @@ namespace sd
 				q.push(s->left);
 			if (s->right)
 				q.push(s->right);
+		}
+
+	}
+
+	template <typename T>
+	void DepththFirstTraversal(BTNode<T> * top)
+	{
+		if (!top)
+			return;
+
+		std::stack<BTNode<T> *> s;
+
+		BTNode<T> * n;
+		s.push(top);
+
+		while (!s.empty())
+		{
+			n = s.front();
+			s.pop();
+			if (s->left)
+				DepththFirstTraversal(s->left);
+			if (s->right)
+				DepththFirstTraversal(s->right);
+
+			std::cout << s->data << std::endl;
 		}
 
 	}

@@ -9,6 +9,8 @@ namespace sd {
 	int UniqueElements(char * array, int size);
 
 	std::string longestCommonStr(std::string &first, std::string &second);
+
+	long substringCaculator(std::string st);
 }
 
 #endif

@@ -1,5 +1,6 @@
 #include "stringfunctions.h"
 #include <string>
+#include <list>
 //#include <iterator>
 
 using std::string;
@@ -99,6 +100,28 @@ namespace sd {
 			
 
 		return result;
+
+	}
+
+	long substringCaculator(string st) {
+
+		long listsize = 0;
+		int originalSize = 0;
+		std::list<string> mysubstrings;
+
+		//for every substring from the left get it and place in my substrings
+		//for (int i = 2;)
+		{
+
+			//for every substring from the right get it and place in mysubstrings
+
+			//remove the duplicates
+		}
+		mysubstrings.unique();
+		// get the size of list
+		listsize = mysubstrings.size();
+		
+		return listsize;
 
 	}
 }

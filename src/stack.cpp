@@ -25,7 +25,6 @@ namespace sd
 		}
 	}
 
-
 	void Stack::erase()
 	{
 		NodePtr curr = m_head;

@@ -19,6 +19,7 @@ void testLargestCommonStr();
 void testStack();
 void testSortinglist();
 void testSort();
+void testStrings();
 
 
 #define PLUS1(a) ((a) + 1)
@@ -30,7 +31,7 @@ void main()
 	char pause = {0};
 
 	//compareDoublesTest();
-	testStack();
+	//testStack();
 
 	//testSortinglist();
 
@@ -38,6 +39,7 @@ void main()
 	//testLargestCommonStr();
 
 	//testSort();
+	testStrings();
 	
 	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
@@ -88,6 +90,8 @@ void testBinaryTree()
 	sd::BreadthFirstTraversal(bt);
 	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt);
+	sd::BreadthFirstTraversal(bt);
+	cout <<"Depth first"<< std::endl;
 	sd::BreadthFirstTraversal(bt);
 }
 
@@ -195,6 +199,9 @@ void testStack()
 	s.print();
 	cout << std::endl;
 
+	data = s.top();
+	cout << "Stack top is now: " << (int)data << std::endl;
+
 	for (int j = 0; j < 4; j++)
 	{
 		s.pop();
@@ -211,19 +218,20 @@ void testStack()
 	s.print();
 
 	data = s.top();
-	cout << "Stack top is now: " << data << std::endl;
+	cout << "Stack top is now: " << (int)data << std::endl;
 }
 
-void testReverseLink()
+void testStrings()
 {  
 
-    char hello[] = "HELL";
+    char hello[] = "HELLOOH";
     sd::ReverseString(hello, sizeof(hello)-1);
 
     cout<< "HELL reversed = "<< hello <<std::endl;
 
     cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
 	
+	cout << "Num of substrings:" << sd::substringCaculator(std::string(hello)) << std::endl;
 }
 
 
