@@ -1,5 +1,5 @@
 #include "linkedlist.h"
-
+#include <algorithm>
 using std::cout;
 
 namespace sd {
@@ -101,28 +101,34 @@ namespace sd {
 		m_size = 0;
 
 	}
-
-	LinkedList& LinkedList::operator=(LinkedList& x)
+	LinkedList::LinkedList(const LinkedList& rhs)
 	{
-		NodePtr left = m_head;
-		void * data;
-		for (int i = 0; i < x.size(); i++)
-		{
-			data = x.front();
-			x.pop_front();
-			if (NULL == left)
-			{
-				left = new Node();
-				left->next = NULL;
-			}
+		m_head = NULL;
+		m_tail = NULL;
 
-			left->data = data;
-			left = left->next;
-		}
-		for (int j = x.size() - 1; j < m_size; j++)
+		NodePtr *dst = &m_head;
+		const Node* src = rhs.m_head;
+		while (src)
 		{
-			pop_back();
+			*dst = new Node(*src);     // invoke Node copy-construction
+			dst = &(*dst)->next;       // move target to new node's next pointer
+			src = src->next;           // advance source
 		}
+	}
+
+	LinkedList::~LinkedList()
+	{
+		erase();
+
+	}
+
+	LinkedList& LinkedList::operator=(const LinkedList& rhs)
+	{
+		LinkedList temp(rhs);
+		std::swap(m_head, temp.m_head);
+		std::swap(m_tail, temp.m_tail);
+		m_size = rhs.m_size;
+
 		return *this;
 	}
 

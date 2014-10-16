@@ -2,6 +2,7 @@
 #include "math.h"
 #include "float.h"
 #include <iostream>
+#include <sstream>
 
 using std::cout;
 
@@ -100,5 +101,46 @@ namespace sd {
 			}
 			cout << std::endl;
 		}
+	}
+
+	int number_utils::reverseNumber(int number)
+	{
+		int reverse = 0;
+		while (number != 0)
+		{
+			reverse = reverse * 10;
+			reverse = reverse + number % 10;
+			number = number / 10;
+		}
+
+		return reverse;
+	}
+
+	void number_utils::fibonacci(int n)
+	{
+		int c, first = 0, second = 1, next;
+
+		cout << "Fibonacci of " << n << std::endl;
+		for (c = 0; c < n; c++)
+		{
+			if (c <= 1)
+				next = c;
+			else
+			{
+				next = first + second;
+				first = second;
+				second = next;
+			}
+			cout << next << " ";
+		}
+		cout << std::endl;
+	}
+
+	bool number_utils::String2Int(const std::string& str, int& result)
+	{
+		std::istringstream ss(str);
+		ss.imbue(std::locale::classic());
+		ss >> result;
+		return !ss.fail() && ss.eof();
 	}
 }
