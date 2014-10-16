@@ -26,6 +26,9 @@ namespace sd {
 		void*& front();
 		void reverse();
 		unsigned int size() { return m_size; }
+		void erase();
+		void print();
+		LinkedList& operator=(LinkedList& x);
 	private:
 		NodePtr m_head;
 		NodePtr m_tail;

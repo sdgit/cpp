@@ -1,5 +1,7 @@
 #include "linkedlist.h"
 
+using std::cout;
+
 namespace sd {
 
 	void LinkedList::push_back(void * data)
@@ -15,13 +17,26 @@ namespace sd {
 		else
 		{
 			m_tail->next = elem;
-			m_tail = elem;
 		}
+		m_tail = elem;
 		++m_size;
 	}
 
 	void LinkedList::pop_back()
 	{
+		if (NULL != m_tail)
+		{
+			NodePtr next = m_head;
+			//get node before m_tail
+			for (int i = 0; i < m_size-1; i++)
+			{
+				next = next->next;
+			}
+			
+			delete m_tail;
+			m_tail = next;
+			--m_size;
+		}
 
 	}
 
@@ -32,6 +47,7 @@ namespace sd {
 			NodePtr next = m_head->next;
 			delete m_head;
 			m_head = next;
+			--m_size;
 		}
 
 	}
@@ -69,6 +85,60 @@ namespace sd {
 
 	}
 
+	void LinkedList::erase()
+	{
+		NodePtr curr = m_head;
+		NodePtr next = NULL;
+		while (curr != NULL)
+		{
+			next = curr->next;
+			std::cout << "deleting :" << (int)curr->data << std::endl;
+			delete curr;
+			curr = next;
+		}
+		m_head = NULL;
+		m_tail = NULL;
+		m_size = 0;
+
+	}
+
+	LinkedList& LinkedList::operator=(LinkedList& x)
+	{
+		NodePtr left = m_head;
+		void * data;
+		for (int i = 0; i < x.size(); i++)
+		{
+			data = x.front();
+			x.pop_front();
+			if (NULL == left)
+			{
+				left = new Node();
+				left->next = NULL;
+			}
+
+			left->data = data;
+			left = left->next;
+		}
+		for (int j = x.size() - 1; j < m_size; j++)
+		{
+			pop_back();
+		}
+		return *this;
+	}
+
+	void LinkedList::print()
+	{
+		NodePtr curr = m_head;
+		cout << "[";
+		while (NULL != curr)
+		{
+			cout << (int)curr->data;
+			curr = curr->next;
+			if (NULL != curr)
+				cout << ", ";
+		}
+		cout << "]" << std::endl;
+	}
 
 	/*
 	//memory hog, but big O (2N)
