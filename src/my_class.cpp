@@ -1,0 +1,36 @@
+#include "my_class.h"
+
+#include <iostream>
+
+namespace kc{
+	using namespace std;
+	MyClass::MyClass()
+	{
+		cout << "calling MyClass()" << endl;
+	}
+
+	/*MyClass::MyClass(MyClass& mc)
+	{
+		cout << "calling MyClass(MyClass&)" << endl;
+	}*/
+
+	MyClass::MyClass(const MyClass& mc)
+	{
+		cout << "calling MyClass(const MyClass&)" << endl;
+	}
+
+	MyClass::~MyClass()
+	{
+		cout << "calling ~MyClass()" << endl;
+	}
+
+	MyClass& MyClass::operator=(const MyClass& mc) {
+		cout << "calling assignment operator" << endl;
+
+		return *this;
+	}
+
+	void MyClass::print() const{
+		cout << "printing..." << endl;
+	}
+}
