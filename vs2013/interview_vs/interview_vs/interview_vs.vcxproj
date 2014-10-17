@@ -67,6 +67,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\binary_tree.cpp" />
     <ClCompile Include="..\..\..\src\linkedlist.cpp" />
+    <ClCompile Include="..\..\..\src\map.cpp" />
     <ClCompile Include="..\..\..\src\misc.cpp" />
     <ClCompile Include="..\..\..\src\my_class.cpp" />
     <ClCompile Include="..\..\..\src\number_utils.cpp" />
@@ -79,6 +80,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\src\binary_tree.h" />
     <ClInclude Include="..\..\..\src\linkedlist.h" />
+    <ClInclude Include="..\..\..\src\map.h" />
     <ClInclude Include="..\..\..\src\misc.h" />
     <ClInclude Include="..\..\..\src\my_class.h" />
     <ClInclude Include="..\..\..\src\number_utils.h" />

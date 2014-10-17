@@ -20,6 +20,8 @@ void testStack();
 void testSortinglist();
 void testSort();
 void testStrings();
+void testFizzBuzz();
+void testLinkedList();
 
 
 #define PLUS1(a) ((a) + 1)
@@ -39,11 +41,23 @@ void main()
 	//testLargestCommonStr();
 
 	//testSort();
-	testStrings();
+	//testStrings();
+	//testFizzBuzz();
+	testLinkedList();
+
+	bool even = sd::evenDivide(10, 5);
+	int reverse = sd::number_utils::reverseNumber(123654);
+	sd::number_utils::fibonacci(15);
 	
 	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
 	return;
+}
+
+void testFizzBuzz()
+{
+	sd::number_utils test;
+	test.printFizzBuzz();
 }
 
 void testSort()
@@ -132,6 +146,37 @@ void printDoubleResult(bool result)
 
 void testLinkedList()
 {
+	int elements[10] = { 10, 9, 8, 7, 16, 5, 3, 3, 12, 1 };
+	int elements2[9] = {1, 12, 3, 3, 5, 16, 7, 8, 9};
+	//int elements[2] = {2,1};
+	void * data;
+	int arraySize = sizeof(elements) / sizeof(int);
+	int arraySize2 = sizeof(elements2) / sizeof(int);
+	sd::LinkedList ll, ll2;
+
+	for (int i = 0; i < arraySize; i++)
+	{
+		ll.push_back((void *)elements[i]);
+	}
+
+	cout << "Linked List Created: ";
+	ll.print();
+	cout << std::endl;
+
+	for (int i = 0; i < arraySize2; i++)
+	{
+		ll2.push_back((void *)elements2[i]);
+	}
+
+	cout << "Linked List Created: ";
+	ll2.print();
+	cout << std::endl;
+
+	ll = ll2;
+	cout << "L replaced with LL2: ";
+	ll.print();
+	cout << std::endl;
+
 	/*
 	sd::NodePtr elemToRemove = new sd::Element(); 
 	elemToRemove->data = (void *)9;
@@ -231,7 +276,7 @@ void testStrings()
 
     cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
 	
-	cout << "Num of substrings:" << sd::substringCaculator(std::string(hello)) << std::endl;
+	cout << "Num of substrings:" << sd::substringCaculator(std::string("kincenvizh")) << std::endl;
 }
 
 

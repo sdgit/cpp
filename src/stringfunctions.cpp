@@ -1,6 +1,7 @@
 #include "stringfunctions.h"
 #include <string>
 #include <list>
+#include <stack>
 //#include <iterator>
 
 using std::string;
@@ -102,21 +103,50 @@ namespace sd {
 		return result;
 
 	}
-
+/*
+	You are given a string S. You need to compute the number of distinct substrings of S.                 
+	A substring of S can be obtained by either removing zero or more characters from the left side of S, or by removing zero or more characters from the right side of S, or a combination of both.
+	Input Format:
+	There is only one line of the input and it contains the string S
+	S will only be composed of characters 'a' to 'z' and will not have more than 10^5 characters.
+	Output Format:
+	You should print the number of distinct substrings of S to the output. This number might be larger than what can be permitted by 32-bit integers.
+	Sample input:
+	kincenvizh
+	Sample output:
+	53
+*/
 	long substringCaculator(string st) {
 
 		long listsize = 0;
 		int originalSize = 0;
 		std::list<string> mysubstrings;
+		std::string temp;
+
+		std::stack < string > s;
+		s.push(st);
 
 		//for every substring from the left get it and place in my substrings
-		//for (int i = 2;)
+		while (!s.empty())
 		{
+			temp = s.top();
+			s.pop();
 
+			mysubstrings.push_back(temp);
+
+			for (int i = 1; i < temp.size() ; i++)
+			{
+				s.push(temp.substr(i));
+			}
 			//for every substring from the right get it and place in mysubstrings
-
-			//remove the duplicates
+			for (int j = temp.size() - 1; j > 0; j--)
+			{
+				s.push(temp.substr(0, j));
+			}
 		}
+		
+		mysubstrings.sort();
+		//remove the duplicates
 		mysubstrings.unique();
 		// get the size of list
 		listsize = mysubstrings.size();

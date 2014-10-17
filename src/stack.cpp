@@ -38,6 +38,7 @@ namespace sd
 		}
 		m_head = NULL;
 		m_tail = NULL;
+		m_size = 0;
 	}
 
 	void Stack::print()

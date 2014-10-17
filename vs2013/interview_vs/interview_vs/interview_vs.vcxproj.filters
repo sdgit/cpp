@@ -42,7 +42,11 @@
     <ClCompile Include="..\..\..\src\sort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\..\..\src\my_class.cpp">
+=======
+    <ClCompile Include="..\..\..\src\map.cpp">
+>>>>>>> origin/master
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +75,11 @@
     <ClInclude Include="..\..\..\src\sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\..\..\src\my_class.h">
+=======
+    <ClInclude Include="..\..\..\src\map.h">
+>>>>>>> origin/master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

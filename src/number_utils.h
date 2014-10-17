@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 namespace sd
 {
@@ -11,6 +12,11 @@ namespace sd
 		static bool compare(double a, double b, double epsilon);
 		static bool sortInPlace(int * nums, int length);
 		bool almostEqual(float a, float b, float epsilon);
+
+		void printFizzBuzz();
+		static int reverseNumber(int number);
+		static void fibonacci(int n);
+		bool String2Int(const std::string& str, int& result);
 	};
 }
 

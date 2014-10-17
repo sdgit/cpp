@@ -21,11 +21,16 @@ namespace sd {
 		LinkedList() : m_head(NULL), m_tail(NULL), m_size(0){}
 		void push_back(void * data);
 		void pop_back();
-		void pop_front();
+		void pop_front(); 
 		void*& back();
 		void*& front();
 		void reverse();
 		unsigned int size() { return m_size; }
+		void erase();
+		void print();
+		LinkedList& operator=(const LinkedList& rhs);
+		LinkedList(const LinkedList& rhs);
+		~LinkedList();
 	private:
 		NodePtr m_head;
 		NodePtr m_tail;
