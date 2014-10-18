@@ -44,16 +44,16 @@ void main()
 	//testSort();
 	//testStrings();
 	//testFizzBuzz();
-	//testLinkedList();
+	testLinkedList();
 
 	//bool even = sd::evenDivide(10, 5);
 	//int reverse = sd::number_utils::reverseNumber(123654);
 	//sd::number_utils::fibonacci(15);
 
 
-	bool even = sd::evenDivide(10, 5);
-	int reverse = sd::number_utils::reverseNumber(123654);
-	sd::number_utils::fibonacci(15);
+	//bool even = sd::evenDivide(10, 5);
+	//int reverse = sd::number_utils::reverseNumber(123654);
+	//sd::number_utils::fibonacci(15);
 	
 	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
@@ -192,6 +192,11 @@ void testLinkedList()
 
 	ll = ll2;
 	cout << "L replaced with LL2: ";
+	ll.print();
+	cout << std::endl;
+
+	ll.reverse();
+	cout << "L reversed ";
 	ll.print();
 	cout << std::endl;
 

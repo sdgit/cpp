@@ -65,20 +65,19 @@ namespace sd {
 
 	void LinkedList::reverse()
 	{
-
-		NodePtr curr = m_head;
 		NodePtr next = NULL;
 		NodePtr prev = NULL;
+		NodePtr curr = NULL;
 
-		m_tail = curr;
+		m_tail = m_head;
+		curr = m_head;
 
-		for (int i = 0; i < m_size; i++)
+		while (curr != NULL)
 		{
-			
 			next = curr->next;
 			curr->next = prev;
 			prev = curr;
-
+			curr = next;
 		}
 
 		m_head = prev;
@@ -103,15 +102,10 @@ namespace sd {
 	}
 	LinkedList::LinkedList(const LinkedList& rhs)
 	{
-		m_head = NULL;
-		m_tail = NULL;
-
-		NodePtr *dst = &m_head;
 		const Node* src = rhs.m_head;
 		while (src)
 		{
-			*dst = new Node(*src);     // invoke Node copy-construction
-			dst = &(*dst)->next;       // move target to new node's next pointer
+			push_back(src->data);
 			src = src->next;           // advance source
 		}
 	}
@@ -127,7 +121,7 @@ namespace sd {
 		LinkedList temp(rhs);
 		std::swap(m_head, temp.m_head);
 		std::swap(m_tail, temp.m_tail);
-		m_size = rhs.m_size;
+		std::swap(m_size, temp.m_size);
 
 		return *this;
 	}
