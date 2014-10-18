@@ -9,11 +9,6 @@ namespace kc{
 		cout << "calling MyClass()" << endl;
 	}
 
-	/*MyClass::MyClass(MyClass& mc)
-	{
-		cout << "calling MyClass(MyClass&)" << endl;
-	}*/
-
 	MyClass::MyClass(const MyClass& mc)
 	{
 		cout << "calling MyClass(const MyClass&)" << endl;
@@ -22,6 +17,15 @@ namespace kc{
 	MyClass::~MyClass()
 	{
 		cout << "calling ~MyClass()" << endl;
+	}
+
+	MyClass::MyClass(const MyClass&&) {
+		cout << "calling move constructor" << endl;
+	}
+
+	MyClass& MyClass::operator=(MyClass&&) {
+		cout << "calling move assignment" << endl;
+		return *this;
 	}
 
 	MyClass& MyClass::operator=(const MyClass& mc) {
