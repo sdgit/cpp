@@ -8,11 +8,11 @@ namespace kc{
 		MyClass();
 
 		//Copy Constructors
-		//MyClass(MyClass&);
 		MyClass(const MyClass&);
-		
+		MyClass(const MyClass&&);
 		//Assignment Operator
 		MyClass& operator=(const MyClass&);
+		MyClass& operator=(MyClass&&);
 
 		virtual ~MyClass();
 
