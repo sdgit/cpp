@@ -10,6 +10,7 @@
 #include "sort.h"
 #include "misc.h"
 #include "stack.h"
+#include "my_class.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -43,7 +44,12 @@ void main()
 	//testSort();
 	//testStrings();
 	//testFizzBuzz();
-	testLinkedList();
+	//testLinkedList();
+
+	//bool even = sd::evenDivide(10, 5);
+	//int reverse = sd::number_utils::reverseNumber(123654);
+	//sd::number_utils::fibonacci(15);
+
 
 	bool even = sd::evenDivide(10, 5);
 	int reverse = sd::number_utils::reverseNumber(123654);
@@ -52,6 +58,18 @@ void main()
 	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
 	return;
+}
+
+void testConstructor()
+{
+	using namespace kc;
+	MyClass();
+
+	MyClass mc1;
+	MyClass mc2(mc1);
+	MyClass mc3(MyClass());
+	MyClass mc4 = MyClass(MyClass());
+
 }
 
 void testFizzBuzz()
@@ -277,6 +295,8 @@ void testStrings()
     cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
 	
 	cout << "Num of substrings:" << sd::substringCaculator(std::string("kincenvizh")) << std::endl;
+
+	cout << sd::reverseStringNotWords("Reverse this string  please")<<std::endl;
 }
 
 

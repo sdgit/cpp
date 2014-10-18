@@ -11,6 +11,8 @@ namespace sd {
 	std::string longestCommonStr(std::string &first, std::string &second);
 
 	long substringCaculator(std::string st);
+
+	std::string reverseStringNotWords(const std::string& sentence);
 }
 
 #endif

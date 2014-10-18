@@ -8,6 +8,32 @@ using std::string;
 
 namespace sd {
 
+	std::string reverseStringNotWords(const std::string& sentence)
+	{
+		std::stack<string> words;
+		int currentPosition = 0;
+		int nextPosition = -1;
+		string delimiters(" ");
+		string reverse;
+
+		do
+		{
+			currentPosition = nextPosition + 1;
+			//sd1 find of last produces results with multi spaces if they were in orginal string
+			nextPosition = sentence.find_last_of(delimiters, currentPosition);
+			words.push(sentence.substr(currentPosition, nextPosition - currentPosition));
+		}while (string::npos != nextPosition);
+
+		while (false == words.empty())
+		{
+			reverse += words.top();
+			reverse += " ";
+			words.pop();
+		}
+
+		return reverse;
+	}
+
 	bool ReverseString(char theString[], int size)
 	{
 	  char * currPos = theString;
