@@ -19,15 +19,15 @@ namespace sd {
 
 	public:
 		LinkedList() : m_head(NULL), m_tail(NULL), m_size(0){}
-		void push_back(void * data);
+		void push_back(void *const& data);
 		void pop_back();
 		void pop_front(); 
 		void*& back();
 		void*& front();
 		void reverse();
-		unsigned int size() { return m_size; }
-		void erase();
-		void print();
+		unsigned int size() const { return m_size; }
+		void clear();
+		void print() const;
 		LinkedList& operator=(const LinkedList& rhs);
 		LinkedList(const LinkedList& rhs);
 		~LinkedList();

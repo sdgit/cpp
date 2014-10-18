@@ -4,7 +4,7 @@ using std::cout;
 
 namespace sd {
 
-	void LinkedList::push_back(void * data)
+	void LinkedList::push_back(void *const& data)
 	{
 		NodePtr elem = new Node();
 		elem->next = NULL;
@@ -84,7 +84,7 @@ namespace sd {
 
 	}
 
-	void LinkedList::erase()
+	void LinkedList::clear()
 	{
 		NodePtr curr = m_head;
 		NodePtr next = NULL;
@@ -112,8 +112,7 @@ namespace sd {
 
 	LinkedList::~LinkedList()
 	{
-		erase();
-
+		clear();
 	}
 
 	LinkedList& LinkedList::operator=(const LinkedList& rhs)
@@ -126,7 +125,7 @@ namespace sd {
 		return *this;
 	}
 
-	void LinkedList::print()
+	void LinkedList::print() const
 	{
 		NodePtr curr = m_head;
 		cout << "[";
