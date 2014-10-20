@@ -19,18 +19,23 @@ namespace sd {
 
 	public:
 		LinkedList() : m_head(NULL), m_tail(NULL), m_size(0){}
+		LinkedList& operator=(const LinkedList& rhs);
+		LinkedList(const LinkedList& rhs);
+		~LinkedList();
+
 		void push_back(void *const& data);
+		void push_front(void *const& data);
 		void pop_back();
 		void pop_front(); 
 		void*& back();
 		void*& front();
+		void remove(void *const & val);
 		void reverse();
 		unsigned int size() const { return m_size; }
+		bool empty() const { return (0 == m_size); }
 		void clear();
 		void print() const;
-		LinkedList& operator=(const LinkedList& rhs);
-		LinkedList(const LinkedList& rhs);
-		~LinkedList();
+
 	private:
 		NodePtr m_head;
 		NodePtr m_tail;

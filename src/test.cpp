@@ -54,6 +54,12 @@ void main()
 	//bool even = sd::evenDivide(10, 5);
 	//int reverse = sd::number_utils::reverseNumber(123654);
 	//sd::number_utils::fibonacci(15);
+
+	struct Object_t { char h[9]; short a; short b; };
+	cout << sizeof(Object_t);
+
+	Object_t object;
+	cout<<sizeof(object);
 	
 	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
@@ -165,9 +171,8 @@ void printDoubleResult(bool result)
 void testLinkedList()
 {
 	int elements[10] = { 10, 9, 8, 7, 16, 5, 3, 3, 12, 1 };
-	int elements2[9] = {1, 12, 3, 3, 5, 16, 7, 8, 9};
+	int elements2[13] = { 8, 11, 10, 9, 8, 7, 16, 5, 3, 3, 12, 1, 8 };
 	//int elements[2] = {2,1};
-	void * data;
 	int arraySize = sizeof(elements) / sizeof(int);
 	int arraySize2 = sizeof(elements2) / sizeof(int);
 	sd::LinkedList ll, ll2;
@@ -183,10 +188,15 @@ void testLinkedList()
 
 	for (int i = 0; i < arraySize2; i++)
 	{
-		ll2.push_back((void *)elements2[i]);
+		ll2.push_front((void *)elements2[i]);
 	}
 
-	cout << "Linked List Created: ";
+	cout << "Linked List2 Created: ";
+	ll2.print();
+	cout << std::endl;
+
+	ll2.remove((void*)8);
+	cout << "LL2 removed 8s ";
 	ll2.print();
 	cout << std::endl;
 
@@ -197,6 +207,11 @@ void testLinkedList()
 
 	ll.reverse();
 	cout << "L reversed ";
+	ll.print();
+	cout << std::endl;
+
+	ll.remove((void*)3);
+	cout << "L removed 3s ";
 	ll.print();
 	cout << std::endl;
 

@@ -22,13 +22,28 @@ namespace sd {
 		++m_size;
 	}
 
+	void LinkedList::push_front(void *const& data)
+	{
+		NodePtr elem = new Node();
+		elem->next = NULL;
+		elem->data = data;
+
+		if (0 != m_size)
+		{
+			elem->next = m_head;
+		}
+
+		m_head = elem;
+		++m_size;
+	}
+
 	void LinkedList::pop_back()
 	{
 		if (NULL != m_tail)
 		{
 			NodePtr next = m_head;
 			//get node before m_tail
-			for (int i = 0; i < m_size-1; i++)
+			for (unsigned int i = 0; i < m_size-1; i++)
 			{
 				next = next->next;
 			}
@@ -60,6 +75,35 @@ namespace sd {
 	void*& LinkedList::front()
 	{
 		return m_head->data;
+	}
+
+	void LinkedList::remove(void *const & val)
+	{
+		NodePtr curr = m_head;
+		NodePtr prev = m_head;
+		NodePtr next = NULL;
+		while (curr != NULL)
+		{
+			next = curr->next;
+			if (curr->data == val)
+			{
+				if (curr == m_head)
+				{
+					m_head = next;
+				}
+				if (curr == m_tail)
+				{
+					m_tail = prev;
+				}
+				prev->next = next;
+				delete curr;
+			}
+			else
+			{//dont update prev if we delete
+				prev = curr;
+			}
+			curr = next;
+		}
 	}
 
 
