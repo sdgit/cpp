@@ -36,6 +36,36 @@ namespace sd {
 		void clear();
 		void print() const;
 
+		template<class Predicate>
+		void remove_if(Predicate pred)
+		{
+			NodePtr curr = m_head;
+			NodePtr prev = m_head;
+			NodePtr next = NULL;
+			while (curr != NULL)
+			{
+				next = curr->next;
+				if (pred(curr->data))
+				{
+					if (curr == m_head)
+					{
+						m_head = next;
+					}
+					if (curr == m_tail)
+					{
+						m_tail = prev;
+					}
+					prev->next = next;
+					delete curr;
+				}
+				else
+				{//dont update prev if we delete
+					prev = curr;
+				}
+				curr = next;
+			}
+		}
+
 	private:
 		NodePtr m_head;
 		NodePtr m_tail;

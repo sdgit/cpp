@@ -106,7 +106,6 @@ namespace sd {
 		}
 	}
 
-
 	void LinkedList::reverse()
 	{
 		NodePtr next = NULL;

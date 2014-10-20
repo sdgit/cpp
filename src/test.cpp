@@ -168,6 +168,8 @@ void printDoubleResult(bool result)
 	}
 }
 
+bool single_digit(void * const& value) { return ((int)value<10); }
+
 void testLinkedList()
 {
 	int elements[10] = { 10, 9, 8, 7, 16, 5, 3, 3, 12, 1 };
@@ -212,6 +214,21 @@ void testLinkedList()
 
 	ll.remove((void*)3);
 	cout << "L removed 3s ";
+	ll.print();
+	cout << std::endl;
+
+
+	ll.remove_if(single_digit);
+	cout << "L single digits ";
+	ll.print();
+	cout << std::endl;
+
+	struct is_odd {
+		bool operator() (void* const& value) { return ((int)value % 2) == 1; }
+	};
+
+	ll.remove_if(is_odd());
+	cout << "L removed odds ";
 	ll.print();
 	cout << std::endl;
 
