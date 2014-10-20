@@ -158,6 +158,9 @@ void testBinaryTree()
 
 	cout << "Depth first In order No recursion 2" << std::endl;
 	sd::DepththFirstTraversalInOrderNR2(btc);
+
+	cout << "Depth first Post order No recursion" << std::endl;
+	sd::DepththFirstTraversalPostOrderNR(btc);
 }
 
 void testLargestCommonStr()

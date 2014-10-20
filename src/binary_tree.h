@@ -242,5 +242,38 @@ namespace sd
 		}
 
 	}
+
+	template <typename T>
+	void DepththFirstTraversalPostOrderNR(BTNode<T> * top)
+	{
+		if (!top)
+			return;
+
+		std::stack<BTNode<T> *> s;
+		BTNode<T> * n = top;
+		s.push(n);
+
+		while (!s.empty())
+		{
+			while (n->left != NULL)
+			{
+				n = n->left;
+				s.push(n);
+			}
+			while (!s.empty())
+			{
+				n = s.top();
+				s.pop();
+				if (n->right != NULL)
+				{
+					n = n->right;
+					s.push(n);
+					break;
+				}
+				std::cout << n->data << std::endl;
+			}
+		}
+
+	}
 	
 }
