@@ -29,10 +29,16 @@ namespace kc {
 		bool insert(const int val);
 		void remove(const int val);
 		void print() const;
+
+		void pre_order_traversal() const;
+		void in_order_traversal() const;
+		void post_order_traversal() const;
 		bool breadth_first_search(const int val);
 		bool breadth_first_traversal() const;
+		void depth_first_traversal() const;
 	private:
 		void print_helper(NodePtr node) const;
+		void depth_first_traversal_helper(NodePtr node) const;
 
 	protected:
 		NodePtr m_root;

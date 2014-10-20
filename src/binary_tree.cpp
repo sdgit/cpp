@@ -5,6 +5,17 @@
 #include <iomanip>
 #include <sstream>
 
+#include "binary_tree.h"
+
+
+#include <stack>
+#include <queue>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+
+#include <boost/lexical_cast.hpp>
+
 namespace kc{
 	using namespace std;
 
@@ -29,6 +40,73 @@ namespace kc{
 				print_helper(node->m_right);
 			}
 		}
+	}
+
+	void BinaryTree::pre_order_traversal() const{
+		stack<NodePtr> nodes;
+		nodes.push(m_root);
+		stringstream ss;
+
+		while (!nodes.empty()) {
+			NodePtr node = nodes.top();
+			nodes.pop();
+			ss << node->m_data << ", ";
+
+			if (node->m_right)
+				nodes.push(node->m_right);
+
+			if (node->m_left)
+				nodes.push(node->m_left);
+		}
+		const string str = ss.str();;
+		cout << "PreOrder Traversal: " << str.substr(0, str.size() - 2) << endl;
+	}
+
+	void BinaryTree::in_order_traversal() const {
+		stack<NodePtr> nodes;
+		NodePtr node = m_root;
+		stringstream ss;
+
+		while (!nodes.empty() || node) {
+			if (node) {
+				nodes.push(node);
+				node = node->m_left;
+			}
+			else {
+				node = nodes.top();
+				nodes.pop();
+				ss << node->m_data << ", ";
+				node = node->m_right;
+			}
+		}
+		const string str = ss.str();;
+		cout << "InOrder Traversal: " << str.substr(0, str.size() - 2) << endl;
+	}
+
+	void BinaryTree::post_order_traversal() const {
+		stack<NodePtr> nodes;
+		NodePtr node = m_root;
+		stringstream ss;
+
+		nodes.push(node);
+
+		while (!nodes.empty() || node) {
+			if (node) {
+				nodes.push(node->m_right);
+				nodes.push(node->m_left);
+				node = node->m_left;
+			}
+			else {
+				node = nodes.top();
+				nodes.pop();
+				if (node) {
+					cout << node->m_data << endl;
+					node = node->m_right;
+				}
+			}
+		}
+		const string str = ss.str();;
+		cout << "PostOrder Traversal: " << str.substr(0, str.size() - 2) << endl;
 	}
 
 	bool BinaryTree::breadth_first_search(const int val) {
@@ -100,7 +178,7 @@ namespace kc{
 			if (node->m_right)
 				nodes.push(node->m_right);
 		}
-		
+
 		const string str = ss.str();
 		if (!str.empty()) {
 			cout << "Breadth First Traversal: " << str.substr(0, str.size() - 2) << endl;
@@ -108,8 +186,25 @@ namespace kc{
 		return false;
 	}
 
+	void BinaryTree::depth_first_traversal() const {
+		depth_first_traversal_helper(m_root);
+	}
+
+	void BinaryTree::depth_first_traversal_helper(NodePtr node) const {
+		string str;
+		if (!node)
+			return;
+		if (node->m_left) {
+			depth_first_traversal_helper(node->m_left);
+		}
+		if (node->m_right) {
+			depth_first_traversal_helper(node->m_right);
+		}
+		cout << node->m_data << endl;
+	}
+
 	void BinaryTree::remove(const int val) {
-		std::cout << "BinaryTree::remove Not Implemented" << std::endl;
+
 	}
 
 	///***************Binary Search Tree Definitions*************************
@@ -191,6 +286,7 @@ namespace kc{
 		}
 	}
 }
+
 
 
 namespace sd{
