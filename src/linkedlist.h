@@ -21,7 +21,7 @@ namespace sd {
 		LinkedList() : m_head(NULL), m_tail(NULL), m_size(0){}
 		LinkedList& operator=(const LinkedList& rhs);
 		LinkedList(const LinkedList& rhs);
-		~LinkedList();
+		virtual ~LinkedList();
 
 		void push_back(void *const& data);
 		void push_front(void *const& data);
@@ -72,8 +72,6 @@ namespace sd {
 		unsigned int m_size;
 	};
 
-	
-	//bool ReverseM(NodePtr* head);
 
 	//bool Sort(NodePtr* head);
 

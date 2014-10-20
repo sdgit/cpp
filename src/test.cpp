@@ -38,13 +38,13 @@ void main()
 
 	//testSortinglist();
 
-	//testBinaryTree();
+	testBinaryTree();
 	//testLargestCommonStr();
 
 	//testSort();
 	//testStrings();
 	//testFizzBuzz();
-	testLinkedList();
+	//testLinkedList();
 
 	//bool even = sd::evenDivide(10, 5);
 	//int reverse = sd::number_utils::reverseNumber(123654);
@@ -116,21 +116,45 @@ void testBinaryTree()
 {
 	sd::BTNode<int> * bt = NULL;
 	sd::GenNodeBinaryTree<int>(&bt,0);
-	sd::BreadthFirstTraversal(bt);
+	sd::BreadthFirstTraversalPreOrder(bt);
 	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt,1);
-	sd::BreadthFirstTraversal(bt);
+	sd::BreadthFirstTraversalPreOrder(bt);
 	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt,2);
-	sd::BreadthFirstTraversal(bt);
+	sd::BreadthFirstTraversalPreOrder(bt);
 	cout<<std::endl;
 	sd::GenNodeBinaryTree<int>(&bt,3);
-	sd::BreadthFirstTraversal(bt);
+	sd::BreadthFirstTraversalPreOrder(bt);
 	cout<<std::endl;
-	sd::GenNodeBinaryTree<int>(&bt);
-	sd::BreadthFirstTraversal(bt);
-	cout <<"Depth first"<< std::endl;
-	sd::BreadthFirstTraversal(bt);
+
+	//custome code, replace when BT class is done
+	sd::BTNode<char> *btc = new sd::BTNode<char>('F');
+	sd::BTNode<char> *curr = btc;
+	sd::BTNode<char> *prev = NULL;
+	curr->left = new sd::BTNode<char>('B');
+	curr = curr->left;
+	curr->left = new sd::BTNode<char>('A');
+	curr->right = new sd::BTNode<char>('D');
+	curr = curr->right;
+	curr->left = new sd::BTNode<char>('C');
+	curr->right = new sd::BTNode<char>('E');
+	curr = btc;
+	curr->right = new sd::BTNode<char>('G');
+	curr = curr->right;
+	curr->right = new sd::BTNode<char>('I');
+	curr = curr->right;
+	curr->left = new sd::BTNode<char>('H');
+
+
+	cout <<"Depth first Pre order"<< std::endl;
+	sd::DepththFirstTraversal(btc);
+
+	cout << "Depth first In order" << std::endl;
+	sd::DepththFirstTraversalInOrder(btc);
+
+	cout << "Depth first In order No recursion" << std::endl;
+	sd::DepththFirstTraversalInOrderNR(btc);
 }
 
 void testLargestCommonStr()

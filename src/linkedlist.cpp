@@ -183,42 +183,6 @@ namespace sd {
 	}
 
 	/*
-	//memory hog, but big O (2N)
-	bool LinkedList::ReverseM(NodePtr* head)
-	{
-	if(!*head)
-	{
-	return false;
-	}
-
-	NodePtr currPos = *head;
-	NodePtr temp, previous;
-
-	temp = new Element;
-	temp->data = currPos->data;
-	temp->next = NULL;
-
-	previous = currPos;
-	currPos = currPos->next;
-	delete previous;
-	previous = temp;
-
-	while( currPos != NULL)
-	{
-	temp = new Element;
-	temp->data = currPos->data;
-	temp->next = previous;
-
-	previous = currPos;
-	currPos = currPos->next;
-	delete previous;
-	previous = temp;
-	}
-
-	*head = temp;
-
-	return (true);
-	}
 	
 	bool Sort(LinkedList::NodePtr* head)
 	{

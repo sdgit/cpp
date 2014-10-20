@@ -99,9 +99,9 @@ namespace sd
 		}
 	}
 
-
+	//pre order
 	template <typename T>
-	void BreadthFirstTraversal(BTNode<T> * top)
+	void BreadthFirstTraversalPreOrder(BTNode<T> * top)
 	{
 		if (!top)
 			return;
@@ -125,6 +125,48 @@ namespace sd
 	}
 
 	template <typename T>
+	void BreadthFirstTraversalInOrder(BTNode<T> * top)
+	{
+		if (!top)
+			return;
+
+		std::stack<BTNode<T> *> s;
+
+		BTNode<T> * n, *prev;
+		s.push(top);
+
+		while (!s.empty())
+		{
+			n = s.top();
+			if (n->left)
+			{
+				s.push(n->left);
+			}
+			else
+			{
+				if (!n->right)
+				{
+					s.pop();
+				}
+				std::cout << n->data << std::endl;
+
+				if (s.empty())
+					break;
+				prev = s.top();
+				if (prev->left == n)
+					prev->left = NULL;
+				if (prev->right == n)
+					prev->right = NULL;
+
+				s.push(n->right);
+			}
+			
+			
+		}
+
+	}
+
+	template <typename T>
 	void DepththFirstTraversal(BTNode<T> * top)
 	{
 		if (!top)
@@ -137,17 +179,74 @@ namespace sd
 
 		while (!s.empty())
 		{
-			n = s.front();
+			n = s.top();
+			std::cout << n->data << std::endl;
 			s.pop();
-			if (s->left)
-				DepththFirstTraversal(s->left);
-			if (s->right)
-				DepththFirstTraversal(s->right);
+			if (n->left)
+				DepththFirstTraversal(n->left);
+			if (n->right)
+				DepththFirstTraversal(n->right);
 
-			std::cout << s->data << std::endl;
 		}
 
 	}
 
+	template <typename T>
+	void DepththFirstTraversalInOrder(BTNode<T> * top)
+	{
+		if (!top)
+			return;
 
+		std::stack<BTNode<T> *> s;
+
+		BTNode<T> * n;
+		s.push(top);
+
+		while (!s.empty())
+		{
+			n = s.top();
+			if (n->left)
+				DepththFirstTraversalInOrder(n->left);
+			std::cout << n->data << std::endl;
+			s.pop();
+			if (n->right)
+				DepththFirstTraversalInOrder(n->right);
+			
+		}
+
+	}
+
+	//no recursion
+	template <typename T>
+	void DepththFirstTraversalInOrderNR(BTNode<T> * top)
+	{
+		if (!top)
+			return;
+
+		std::stack<BTNode<T> *> s;
+
+		BTNode<T> * n;
+		s.push(top);
+
+		while (!s.empty())
+		{
+			n = s.top();
+			if (n->left)
+			{
+				s.push(n->left);
+				n->left = NULL;
+				continue;
+			}
+			std::cout << n->data << std::endl;
+			s.pop();
+			if (n->right)
+			{
+				s.push(n->right);
+				n->right = NULL;
+			}
+
+		}
+
+	}
+	
 }
