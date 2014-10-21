@@ -38,7 +38,7 @@ void main()
 
 	//testSortinglist();
 
-	testBinaryTree();
+	//testBinaryTree();
 	//testLargestCommonStr();
 
 	//testSort();
@@ -54,6 +54,7 @@ void main()
 	//bool even = sd::evenDivide(10, 5);
 	//int reverse = sd::number_utils::reverseNumber(123654);
 	//sd::number_utils::fibonacci(15);
+	cout << sd::number_utils::FindFirtSignedInt("adlkjflk-123adslf098234");
 
 	struct Object_t { char h[9]; short a; short b; };
 	cout << sizeof(Object_t);

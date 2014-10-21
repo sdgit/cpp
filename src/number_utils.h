@@ -16,7 +16,8 @@ namespace sd
 		void printFizzBuzz();
 		static int reverseNumber(int number);
 		static void fibonacci(int n);
-		bool String2Int(const std::string& str, int& result);
+		static bool String2Int(const std::string& str, int& result);
+		static int FindFirtSignedInt(std::string str);
 	};
 }
 

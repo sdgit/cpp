@@ -244,6 +244,7 @@ namespace sd
 
 	}
 
+	//easiest to memorize?
 	template <typename T>
 	void DepththFirstTraversalInOrderNR3(BTNode<T> * top)
 	{
@@ -291,16 +292,19 @@ namespace sd
 			{
 				n = n->left;
 				s.push(n);
+				if (n->left == NULL)
+				{
+					std::cout << n->data << std::endl;
+					n = s.top();
+				}
 			}
-			n = s.top();
-			s.pop();
-			std::cout << n->data << std::endl;
+
 
 			if (n->right != NULL)
 			{
 				n = n->right;
 				s.push(n);
-			}
+			}			
 
 		}
 

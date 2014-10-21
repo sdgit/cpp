@@ -143,4 +143,24 @@ namespace sd {
 		ss >> result;
 		return !ss.fail() && ss.eof();
 	}
+
+	int number_utils::FindFirtSignedInt(std::string str)
+	{
+		std::string allDelimiters = "+-0123456789";
+		std::string numDelimiters = "0123456789";
+		std::string numberStr;
+		int number = 0;
+		int start = str.find_first_of(allDelimiters);
+		int end = 0;
+
+		if (start != std::string::npos)
+		{
+
+			end = str.find_last_of(numDelimiters, start);
+			numberStr = str.substr(start, end - start);
+			String2Int(numberStr, number);
+		} 
+		
+		return number;
+	}
 }
