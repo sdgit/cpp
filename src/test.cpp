@@ -29,7 +29,7 @@ void testLinkedList();
 
 using std::cout;
 
-void main()
+int main()
 {
 	char pause = {0};
 
@@ -64,18 +64,19 @@ void main()
 	
 	cout<<"Press Any key to exit"<<std::endl;
 	std::cin.get(&pause, 1);
-	return;
+	return 0;
 }
 
 void testConstructor()
 {
-	using namespace kc;
-	MyClass();
+	/*
+	kc::MyClass();
 
-	MyClass mc1;
-	MyClass mc2(mc1);
-	MyClass mc3(MyClass());
-	MyClass mc4 = MyClass(MyClass());
+	kc::MyClass mc1;
+	kc::MyClass mc2(mc1);
+	kc::MyClass mc3(MyClass());
+	kc::MyClass mc4 = MyClass(MyClass());
+	*/
 
 }
 
@@ -254,14 +255,15 @@ void testLinkedList()
 	ll.print();
 	cout << std::endl;
 
-	struct is_odd {
+	class is_odd {
+	public:
 		bool operator() (void* const& value) { return ((int)value % 2) == 1; }
 	};
 
-	ll.remove_if(is_odd());
+	/*ll.remove_if<is_odd>(is_odd());
 	cout << "L removed odds ";
 	ll.print();
-	cout << std::endl;
+	cout << std::endl;*/
 
 	/*
 	sd::NodePtr elemToRemove = new sd::Element(); 

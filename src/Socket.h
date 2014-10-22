@@ -2,6 +2,8 @@
 
 
 #include <vector>
+#include <string>
+
 #ifdef _MSC_VER
 #include <WinSock2.h> //fd_set
 #else

@@ -23,12 +23,14 @@ namespace sd
 
 	bool evenDivide(const int &a, const int &b);
 
+	//reference count class
 	class RC
 	{
 	private:
-		int count = 0; // Reference count
+		int count; // Reference count
 
 	public:
+		RC() : count(0){}
 		void AddRef()
 		{
 			// Increment the reference count
@@ -43,6 +45,7 @@ namespace sd
 		}
 	};
 
+	//smart pointer class
 	template < typename T > class SP
 	{
 	private:

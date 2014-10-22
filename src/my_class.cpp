@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#if __cplusplus > 199711L || _MSC_VER >= 1203
 namespace kc{
 	using namespace std;
 	MyClass::MyClass()
@@ -38,3 +39,4 @@ namespace kc{
 		cout << "printing..." << endl;
 	}
 }
+#endif

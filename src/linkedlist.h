@@ -37,7 +37,7 @@ namespace sd {
 		void print() const;
 
 		template<class Predicate>
-		void remove_if(Predicate pred)
+		void remove_if(const Predicate& pred)
 		{
 			NodePtr curr = m_head;
 			NodePtr prev = m_head;
@@ -78,6 +78,8 @@ namespace sd {
 	//bool SortedInsert(NodePtr*head, NodePtr data);
 }
 
+
+#if __cplusplus > 199711L || _MSC_VER >= 1203
 namespace kc{
 	template<class T>
 	class LinkedList{
@@ -178,5 +180,6 @@ namespace kc{
 		size_t m_size;
 	};
 }
+#endif
 
 #endif

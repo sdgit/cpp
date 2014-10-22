@@ -3,6 +3,9 @@
 #ifdef _MSC_VER
 #include <WS2tcpip.h>
 #else
+//#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #endif
 
 namespace sd
@@ -28,7 +31,8 @@ namespace sd
 #ifdef _MSC_VER
 			inet_pton(AF_INET, address.c_str(), &servAddress.sin_addr);
 #else
-			servAddress.sin_addr.s_addr = inet_addr(address.c_str());
+			//servAddress.sin_addr.s_addr = inet_addr(address.c_str());
+			inet_pton(AF_INET, address.c_str(), &servAddress.sin_addr);
 #endif
 		}
 

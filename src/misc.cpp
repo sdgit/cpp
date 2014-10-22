@@ -1,5 +1,4 @@
 #include "misc.h"
-#include <array>
 
 using std::cout;
 

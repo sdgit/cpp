@@ -1,5 +1,6 @@
 #pragma once
 
+#if __cplusplus > 199711L || _MSC_VER >= 1203
 namespace kc{
 	class MyClass
 	{
@@ -20,5 +21,8 @@ namespace kc{
 	private:
 		int m_data;
 	};
-
 }
+
+#endif
+
+

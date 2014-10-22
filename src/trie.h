@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+#if __cplusplus > 199711L || _MSC_VER >= 1203
 namespace kc{
 	template<class T>
 	class Trie{
@@ -79,3 +80,4 @@ namespace kc{
 		Node m_node;	
 	};
 }
+#endif
