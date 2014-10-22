@@ -1,9 +1,13 @@
 #pragma once
 
-//#ifdef __linux__
 
 #include <vector>
+#ifdef _MSC_VER
 #include <WinSock2.h> //fd_set
+#else
+#include <sys/socket.h>
+#define SOCKET int
+#endif
 
 namespace sd
 {
@@ -48,10 +52,10 @@ namespace sd
 	class ServerSocket: virtual public Socket
 	{
 	public:
-		bool Start(const unsigned int port, const std::string& address = "");
+		bool Start(const std::string& address, const unsigned int thePort = 0);
 	private:
 		bool Create();
-		bool Bind(std::string address = "");
+		bool Bind(const std::string& address);
 
 	};
 
@@ -61,4 +65,3 @@ namespace sd
 	};
 }
 
-//#endif
