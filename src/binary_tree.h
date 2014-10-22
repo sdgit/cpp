@@ -74,7 +74,7 @@ namespace sd
 		T data;
 		NodePtr left;
 		NodePtr right;
-		BTNode() :left(nullptr), right(nullptr), data(NULL){}
+		BTNode() :left(NULL), right(NULL), data(NULL){}
 		BTNode(T val) :left(nullptr), right(nullptr), data(val){}
 	};
 
