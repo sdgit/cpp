@@ -28,12 +28,7 @@ namespace sd
 		}
 		else
 		{
-#ifdef _MSC_VER
 			inet_pton(AF_INET, address.c_str(), &servAddress.sin_addr);
-#else
-			//servAddress.sin_addr.s_addr = inet_addr(address.c_str());
-			inet_pton(AF_INET, address.c_str(), &servAddress.sin_addr);
-#endif
 		}
 
 		int error = bind(sock, (const sockaddr *)&servAddress, sizeof(servAddress));
@@ -50,7 +45,24 @@ namespace sd
 
 		if (Create() && Bind(address))
 		{
-			return (0 == listen(sock, 5));
+			return (0 == listen(sock, SOMAXCONN));
 		}
+	}
+
+
+	bool ClientSocket::Create()
+	{
+		sock = socket(af, type, proto);
+		return (sock >= 0);
+	}
+
+	bool ClientSocket::Start(const std::string& address, const unsigned int thePort)
+	{
+		if (port > 0)
+		{
+			SetPort(thePort);
+		}
+
+		return true;
 	}
 }

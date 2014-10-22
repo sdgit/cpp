@@ -11,6 +11,8 @@
 #include "misc.h"
 #include "stack.h"
 #include "my_class.h"
+#include "Socket.h"
+#include "Thread.h"
 
 void compareDoublesTest();
 void printDoubleResult(bool result);
@@ -23,6 +25,7 @@ void testSort();
 void testStrings();
 void testFizzBuzz();
 void testLinkedList();
+void testSockets();
 
 
 #define PLUS1(a) ((a) + 1)
@@ -45,6 +48,7 @@ int main()
 	//testStrings();
 	//testFizzBuzz();
 	//testLinkedList();
+	testSockets();
 
 	//bool even = sd::evenDivide(10, 5);
 	//int reverse = sd::number_utils::reverseNumber(123654);
@@ -62,9 +66,19 @@ int main()
 	Object_t object;
 	cout<<sizeof(object);
 	
-	cout<<"Press Any key to exit"<<std::endl;
+	cout << std::endl<< "Press Any key to exit" << std::endl;
 	std::cin.get(&pause, 1);
 	return 0;
+}
+
+void testSockets()
+{
+#ifdef __linux__
+	sd::ServerSocket server;
+	sd::ClientSocket client;
+
+	server.Start("");
+#endif
 }
 
 void testConstructor()

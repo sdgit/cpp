@@ -63,6 +63,10 @@ namespace sd
 
 	class ClientSocket : virtual public Socket
 	{
+	public:
+		bool Start(const std::string& address, const unsigned int thePort = 0);
+	private:
+		bool Create();
 
 	};
 }
