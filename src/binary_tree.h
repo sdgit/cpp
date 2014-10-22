@@ -8,7 +8,7 @@
 
 //http://codercareer.blogspot.com/p/binary-tree-interview-questions.html
 
-
+#if __cplusplus > 199711L
 namespace kc {
 	class Node;
 	typedef std::shared_ptr<Node> NodePtr;
@@ -62,6 +62,7 @@ namespace kc {
 		NodePtr find_largest_node(NodePtr root);
 	};
 }
+#endif
 
 namespace sd
 {

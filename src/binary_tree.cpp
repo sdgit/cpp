@@ -12,7 +12,7 @@
 #include <iomanip>
 #include <sstream>
 
-
+#if __cplusplus > 199711L
 namespace kc{
 	using namespace std;
 
@@ -283,7 +283,7 @@ namespace kc{
 		}
 	}
 }
-
+#endif
 
 
 namespace sd{
