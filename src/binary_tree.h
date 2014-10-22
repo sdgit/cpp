@@ -5,10 +5,11 @@
 #include <queue>
 #include "time.h"
 #include <stack>
+#include <iostream>
 
 //http://codercareer.blogspot.com/p/binary-tree-interview-questions.html
 
-#if __cplusplus > 199711L
+#if __cplusplus > 199711L || _MSC_VER >= 1203
 namespace kc {
 	class Node;
 	typedef std::shared_ptr<Node> NodePtr;
@@ -75,7 +76,7 @@ namespace sd
 		NodePtr left;
 		NodePtr right;
 		BTNode() :left(NULL), right(NULL), data(NULL){}
-		BTNode(T val) :left(nullptr), right(nullptr), data(val){}
+		BTNode(T val) :left(NULL), right(NULL), data(val){}
 	};
 
 	template<typename T>
