@@ -1,86 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="..\..\..\src\binary_tree.cpp" />
+    <ClCompile Include="..\..\..\src\linkedlist.cpp" />
+    <ClCompile Include="..\..\..\src\map.cpp" />
+    <ClCompile Include="..\..\..\src\misc.cpp" />
+    <ClCompile Include="..\..\..\src\my_class.cpp" />
+    <ClCompile Include="..\..\..\src\number_utils.cpp" />
+    <ClCompile Include="..\..\..\src\sort.cpp" />
+    <ClCompile Include="..\..\..\src\stack.cpp" />
+    <ClCompile Include="..\..\..\src\stringfunctions.cpp" />
+    <ClCompile Include="..\..\..\src\test.cpp" />
+    <ClCompile Include="..\..\..\src\trie.cpp" />
+    <ClCompile Include="..\..\..\src\Socket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\linkedlist.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\misc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\number_utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\stringfunctions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\binary_tree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\trie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\sort.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="..\..\..\src\my_class.cpp">
-=======
-    <ClCompile Include="..\..\..\src\map.cpp">
->>>>>>> origin/master
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\src\linkedlist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\misc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\number_utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\stringfunctions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\binary_tree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\trie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="..\..\..\src\my_class.h">
-=======
-    <ClInclude Include="..\..\..\src\map.h">
->>>>>>> origin/master
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\..\src\binary_tree.h" />
+    <ClInclude Include="..\..\..\src\linkedlist.h" />
+    <ClInclude Include="..\..\..\src\map.h" />
+    <ClInclude Include="..\..\..\src\misc.h" />
+    <ClInclude Include="..\..\..\src\my_class.h" />
+    <ClInclude Include="..\..\..\src\number_utils.h" />
+    <ClInclude Include="..\..\..\src\sort.h" />
+    <ClInclude Include="..\..\..\src\stack.h" />
+    <ClInclude Include="..\..\..\src\stringfunctions.h" />
+    <ClInclude Include="..\..\..\src\trie.h" />
+    <ClInclude Include="..\..\..\src\Socket.h" />
   </ItemGroup>
 </Project>
