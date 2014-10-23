@@ -6,6 +6,7 @@
 
 namespace sd 
 {
+	//http://stackoverflow.com/questions/1151582/pthread-function-from-a-class
 	class MyThreadClass
 	{
 	public:
