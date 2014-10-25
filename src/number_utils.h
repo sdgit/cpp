@@ -21,3 +21,6 @@ namespace sd
 	};
 }
 
+namespace kc {
+	void swap_int(int& x, int& y);
+}

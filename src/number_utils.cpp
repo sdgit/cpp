@@ -164,3 +164,11 @@ namespace sd {
 		return number;
 	}
 }
+
+namespace kc{
+	void swap_int(int& x, int&y) {
+		x ^= y;
+		y ^= x;
+		x ^= y;
+	}
+}
