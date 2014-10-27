@@ -4,9 +4,10 @@
 #include <iostream>
 
 namespace sd {
-	bool ReverseString(char * theString, int size);
+	bool ReverseString(char theString[]);
+	void ReverseString(std::string & str);
 
-	int UniqueElements(char * array, int size);
+	int UniqueElements(char * str);
 
 	std::string longestCommonStr(std::string &first, std::string &second);
 

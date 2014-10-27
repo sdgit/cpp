@@ -26,6 +26,7 @@ void testStrings();
 void testFizzBuzz();
 void testLinkedList();
 void testSockets();
+void testNumbers();
 
 
 #define PLUS1(a) ((a) + 1)
@@ -48,17 +49,11 @@ int main()
 	//testStrings();
 	//testFizzBuzz();
 	//testLinkedList();
-	testSockets();
+	//testSockets();
+	testNumbers();
 
 	//bool even = sd::evenDivide(10, 5);
-	//int reverse = sd::number_utils::reverseNumber(123654);
-	//sd::number_utils::fibonacci(15);
-
-
-	//bool even = sd::evenDivide(10, 5);
-	//int reverse = sd::number_utils::reverseNumber(123654);
-	//sd::number_utils::fibonacci(15);
-	cout << sd::number_utils::FindFirtSignedInt("adlkjflk-123adslf098234");
+	
 
 	struct Object_t { char h[9]; short a; short b; };
 	cout << sizeof(Object_t);
@@ -71,13 +66,25 @@ int main()
 	return 0;
 }
 
+void testNumbers()
+{
+	int reverse = sd::number_utils::reverseNumber(123654);
+	sd::number_utils::fibonacci(15);
+	cout << sd::number_utils::FindFirtSignedInt("adlkjflk-123adslf098234");
+	cout << "sqrt of .321: " << sd::number_utils::sqrt(.321) << std::endl;
+	cout << "sqrt of 589.21: " << sd::number_utils::sqrt(589.21) << std::endl;
+}
+
 void testSockets()
 {
 #ifdef __linux__
-	sd::ServerSocket server;
-	sd::ClientSocket client;
-
-	server.Start("");
+	sd::SocketThread servThread;
+	sd::SocketThread clientThread;
+	clientThread.SetClient();
+	clientThread.StartInternalThread();
+	servThread.SetServer();
+	servThread.StartInternalThread();
+	servThread.WaitForInternalThreadToExit();
 #endif
 }
 
@@ -372,15 +379,24 @@ void testStrings()
 {  
 
     char hello[] = "HELLOOH";
-    sd::ReverseString(hello, sizeof(hello)-1);
+    sd::ReverseString(hello);
 
     cout<< "HELL reversed = "<< hello <<std::endl;
 
-    cout<< "unique:"<<sd::UniqueElements(hello,sizeof(hello)-1)<<std::endl;
+    cout<< "unique:"<<sd::UniqueElements(hello)<<std::endl;
 	
 	cout << "Num of substrings:" << sd::substringCaculator(std::string("kincenvizh")) << std::endl;
 
 	cout << sd::reverseStringNotWords("Reverse this string  please")<<std::endl;
+
+	char test[] = "this string";
+	std::string teststr = test;
+	cout << "Reversing " << test << " =";
+	sd::ReverseString(test);
+	cout << test << std::endl;
+	cout << "Reversing " << teststr << " =";
+	sd::ReverseString(teststr);
+	cout << teststr << std::endl;
 }
 
 

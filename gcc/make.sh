@@ -11,4 +11,5 @@ g++ -c -g -I ../src/ ../src/stack.cpp
 g++ -c -g -I ../src/ ../src/stringfunctions.cpp
 g++ -c -g -I ../src/ ../src/test.cpp
 g++ -c -g -I ../src/ ../src/trie.cpp
-g++ -g Socket.o binary_tree.o linkedlist.o map.o misc.o my_class.o number_utils.o sort.o stack.o stringfunctions.o test.o trie.o -o interview
+g++ -c -g -I ../src/ ../src/Thread.cpp
+g++ -g Socket.o binary_tree.o linkedlist.o map.o misc.o my_class.o number_utils.o sort.o stack.o stringfunctions.o test.o trie.o Thread.o -o interview -lpthread

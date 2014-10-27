@@ -3,6 +3,7 @@
 #include <list>
 #include <stack>
 //#include <iterator>
+#include <set>
 
 using std::string;
 
@@ -34,72 +35,41 @@ namespace sd {
 		return reverse;
 	}
 
-	bool ReverseString(char theString[], int size)
+	void ReverseString(std::string & str)
 	{
-	  char * currPos = theString;
-	  char * end = &theString[size-1];
-	  char temp = 0;
-
-	  if(theString == NULL || size < 1)
-	  {
-		  return false;
-	  }
-
-	  while(currPos != end)
-	  {
-		 temp = *currPos;
-		 *currPos = *end;
-		 *end = temp;
-
-		 currPos++;
-
-		 if(currPos == end)
-		 {
-			 break;
-		 }
-		 end--;
-	  }
-
-	  return 0; //change this or review!
+		for (int i = 0, j = str.size() - 1; i < j; i++, j--)
+		{
+			std::swap(str[i], str[j]);
+		}
 	}
 
-	int UniqueElements(char * array, int size)
+	bool ReverseString(char theString[])
+	{
+		int length = strlen(theString);
+	    char temp = 0;
+
+		for (int i = 0, j = length-1; i < j; i++, j--)
+		{
+			temp = theString[i];
+			theString[i] = theString[j];
+			theString[j] = temp;
+		}
+
+	  return true;
+	}
+
+	int UniqueElements(char * str)
 	{
 		int found = 0;
-		bool uniqueFlag = false;
-		char *unique = new char[size];
-
-		if(array == NULL || size < 1)
-		{
-			return -1;
-		}
+		int size = strlen(str);
+		std::set<char> unique;
 
 		for( int i = 0; i < size; i++ )
 		{
-			uniqueFlag = true;
-
-			for(int j =0; j <found; j++)
-			{
-				if(array[i] == unique[j])
-				{
-					//not unique
-					uniqueFlag = false;
-					continue;
-				}
-			}
-
-			if(uniqueFlag == true)
-			{
-				unique[found] = array[i];
-				found++;
-			}
-
+			unique.insert(str[i]);
 		}
 
-		delete [] unique;
-		return found;
-
-
+		return unique.size();
 	}
 
 	string longestCommonStr(string &first, string &second)

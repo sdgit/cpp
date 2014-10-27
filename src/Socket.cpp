@@ -190,7 +190,6 @@ namespace sd
 		if (connect(sock, (struct sockaddr *)&sockAddress, sizeof(sockAddress)) < 0)
 		{
 			printf("\n Error : Connect Failed \n");
-			return 1;
 		}
 	}
 

@@ -18,6 +18,8 @@ namespace sd
 		static void fibonacci(int n);
 		static bool String2Int(const std::string& str, int& result);
 		static int FindFirtSignedInt(std::string str);
+		static float sqrt(float n);
+		static float sqrt1(float n);
 	};
 }
 

@@ -10,12 +10,14 @@ namespace sd
 	bool SocketThread::SetServer()
 	{
 		socketPtr = new ServerSocket();
+		name = "ServerThread";
 		socketPtr->Start("");
 	}
 
 	bool SocketThread::SetClient()
 	{
 		socketPtr = new ClientSocket();
+		name = "ClientThread";
 		socketPtr->Start("");
 	}
 

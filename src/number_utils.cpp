@@ -3,6 +3,8 @@
 #include "float.h"
 #include <iostream>
 #include <sstream>
+#include <limits>
+#include <math.h>
 
 using std::cout;
 
@@ -31,6 +33,49 @@ namespace sd {
 	{
 
 		return (true);
+	}
+
+	//doesnt work for numbers less than 1
+
+	float number_utils::sqrt1(float n)
+	{
+		float x = n;
+		float y = 1;
+		float e = 0.0000001;
+
+		while (x - y > e)
+		{
+			x = (x + y) / 2;
+			y = n / x;
+		}
+
+		return x;
+	}
+
+	float number_utils::sqrt(float n)
+	{
+		float e = .00000001; //precision
+		float min = std::numeric_limits<float>::min();;
+		float max = std::numeric_limits<float>::max();
+		float f;
+
+		//the guess
+		if (n >= 4.0)
+		{
+			f = n / 2.0;
+		}
+		else
+		{
+			f = n * 2.0;
+		}
+		
+		for (; f > min; f = nextafterf(f, -1.0))
+		{
+			if ((f*f <= (n +e)) && ((f*f >= (n-e))))
+			{
+				return f;
+			}
+		}
 	}
 
 	bool number_utils::almostEqual(float a, float b, float epsilon) {
