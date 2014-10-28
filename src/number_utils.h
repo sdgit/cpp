@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 namespace sd
 {
@@ -25,4 +26,5 @@ namespace sd
 
 namespace kc {
 	void swap_int(int& x, int& y);
+	int string_to_int(const std::string& str);
 }
