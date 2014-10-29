@@ -21,7 +21,7 @@ namespace sd {
 
 	bool number_utils::compare(double a, double b, double epsilon)
 	{
-		if( fabs(a -b) < epsilon)
+		if (fabs(a - b) < epsilon)
 		{
 			return (true);
 		}
@@ -68,10 +68,10 @@ namespace sd {
 		{
 			f = n * 2.0;
 		}
-		
+
 		for (; f > min; f = nextafterf(f, -1.0))
 		{
-			if ((f*f <= (n +e)) && ((f*f >= (n-e))))
+			if ((f*f <= (n + e)) && ((f*f >= (n - e))))
 			{
 				return f;
 			}
@@ -85,41 +85,43 @@ namespace sd {
 
 		if (a == b) { //handles infinite numbers
 			return true;
-		} else if (a == 0 || b == 0 || diff < FLT_MIN) {
+		}
+		else if (a == 0 || b == 0 || diff < FLT_MIN) {
 			// a or b is zero or both are extremely close to it
-			return (diff < (epsilon * FLT_MIN ));
-		} else { // use relative error
+			return (diff < (epsilon * FLT_MIN));
+		}
+		else { // use relative error
 			return (diff / (absA + absB) < epsilon);
 		}
 	}
-	
-/*
-	Write a program which prints the numbers from 1 to N, each on a new line. But for multiples of three print "Fizz" instead of the number 3 and for the multiples of five print "Buzz".  For numbers which are multiples of both three and five print "FizzBuzz". Read in the input number from STDIN.
-	Sample Input #00:
-	15
-	Sample Output #00 :
-	1
-	2
-	Fizz
-	4
-	Buzz
-	Fizz
-	7
-	8
-	Fizz
-	Buzz
-	11
-	Fizz
-	13
-	14
-	FizzBuzz
-	Explanation:
-	Position 3,6,9,12 have the word "Fizz" because they are multiples of 3.
-	Positions 5 and 10 have the word "Buzz" because they are multiples of 5. 
-	Position 15 has the word FizzBuzz because it is a multiple of both 3 and 5. 
-	Constraints :
-	N < 107
-*/
+
+	/*
+		Write a program which prints the numbers from 1 to N, each on a new line. But for multiples of three print "Fizz" instead of the number 3 and for the multiples of five print "Buzz".  For numbers which are multiples of both three and five print "FizzBuzz". Read in the input number from STDIN.
+		Sample Input #00:
+		15
+		Sample Output #00 :
+		1
+		2
+		Fizz
+		4
+		Buzz
+		Fizz
+		7
+		8
+		Fizz
+		Buzz
+		11
+		Fizz
+		13
+		14
+		FizzBuzz
+		Explanation:
+		Position 3,6,9,12 have the word "Fizz" because they are multiples of 3.
+		Positions 5 and 10 have the word "Buzz" because they are multiples of 5.
+		Position 15 has the word FizzBuzz because it is a multiple of both 3 and 5.
+		Constraints :
+		N < 107
+		*/
 	void number_utils::printFizzBuzz()
 	{
 		unsigned int N;
@@ -129,7 +131,7 @@ namespace sd {
 		if (N >= 106) //constraint given by problem
 			N = 106;
 		cout << N << std::endl;
-		
+
 		for (int i = 1; i <= N; i++)
 		{
 			if (i % 3 == 0)
@@ -204,16 +206,46 @@ namespace sd {
 			end = str.find_last_of(numDelimiters, start);
 			numberStr = str.substr(start, end - start);
 			String2Int(numberStr, number);
-		} 
-		
+		}
+
 		return number;
 	}
 }
 
 namespace kc{
+#include <limits>
+	using namespace std;
 	void swap_int(int& x, int&y) {
 		x ^= y;
 		y ^= x;
 		x ^= y;
+	}
+
+	int string_to_int(const std::string& str) {
+		int pos = 1;
+		bool found_int = false;
+		int ans = 0;
+
+		int MAX_INT = numeric_limits<int>::max();
+
+		for (string::const_iterator itr = str.begin(); itr != str.end(); ++itr) {
+			char c = *itr;
+			if (c == '-') {
+				pos = -1;
+			}
+			else if (c > '0' && c < '9') {
+				ans = (10 * ans) + (c - '0');
+				found_int = true;
+			}
+			else if (found_int){
+				break;
+			}
+		}
+		if (found_int) {
+			return pos * ans;
+		}
+		else {
+			throw runtime_error("no int found");
+		}
 	}
 }
