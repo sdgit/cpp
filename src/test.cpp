@@ -48,9 +48,9 @@ int main()
 	//testSort();
 	//testStrings();
 	//testFizzBuzz();
-	//testLinkedList();
+	testLinkedList();
 	//testSockets();
-	testNumbers();
+	//testNumbers();
 
 	//bool even = sd::evenDivide(10, 5);
 	
@@ -270,9 +270,18 @@ void testLinkedList()
 	ll.print();
 	cout << std::endl;
 
+	ll.resize(20);
+	cout << "L resized to 20 ";
+	ll.print();
+	cout << std::endl;
 
 	ll.remove_if(single_digit);
 	cout << "L single digits ";
+	ll.print();
+	cout << std::endl;
+
+	ll.resize(10);
+	cout << "L resized to 10 ";
 	ll.print();
 	cout << std::endl;
 
@@ -286,53 +295,6 @@ void testLinkedList()
 	ll.print();
 	cout << std::endl;*/
 
-	/*
-	sd::NodePtr elemToRemove = new sd::Element(); 
-	elemToRemove->data = (void *)9;
-
-	for (int k = 6; k < 10; k++)
-	{
-		if (!sd::insertAfter(0, elements[k])) cout << "error insertAfter" << std::endl;
-	}
-
-	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::GetMthToLastElement(1, myStack, elemToRemove);
-
-	cout << "remove returned:" << remove(elemToRemove) << std::endl;
-
-	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::ReverseM(&myStack);
-
-	cout << "reversem printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::ReverseT(&myStack);
-
-	cout << "reverset printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::Sort(&myStack);
-
-	cout << "sorted printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::pop(&myStack, &data);
-
-	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::Element tempElem;
-	tempElem.data = (void*)16;
-	sd::SortedInsert(&myStack, &tempElem);
-
-	cout << "sorted insert printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	sd::ReverseT(&myStack);
-
-	cout << "reverset printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-
-	cout << "deleteStack returned:" << (bool)sd::deleteStack(&myStack) << std::endl;
-
-	cout << "printStack returned:" << (bool)sd::printStack(myStack) << std::endl;
-	*/
 }
 
 void testStack()

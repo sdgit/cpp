@@ -35,6 +35,7 @@ namespace sd {
 		bool empty() const { return (0 == m_size); }
 		void clear();
 		void print() const;
+		void resize(unsigned int size, void * data = NULL);
 
 		template<class Predicate>
 		void remove_if(const Predicate& pred)
@@ -57,6 +58,7 @@ namespace sd {
 					}
 					prev->next = next;
 					delete curr;
+					--m_size;
 				}
 				else
 				{//dont update prev if we delete

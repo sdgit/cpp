@@ -97,6 +97,7 @@ namespace sd {
 				}
 				prev->next = next;
 				delete curr;
+				--m_size;
 			}
 			else
 			{//dont update prev if we delete
@@ -180,6 +181,21 @@ namespace sd {
 				cout << ", ";
 		}
 		cout << "]" << std::endl;
+	}
+
+	void LinkedList::resize(unsigned int size, void * data) 
+	{
+		while (size > m_size)
+		{
+			push_back(data);
+		}
+
+		while (size < m_size)
+		{
+			pop_back();
+
+		}
+
 	}
 
 	/*
