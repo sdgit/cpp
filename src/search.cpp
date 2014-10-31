@@ -35,11 +35,11 @@ namespace kc{
 
 		if (arr[0] < arr[i]) {
 			//check right side
-			return find_min(arr + i, size - i);
+			return find_min_rotated_array(arr + i, size - i);
 		}
 		else {
 			//check left side
-			return find_min(arr, i + 1);
+			return find_min_rotated_array(arr, i + 1);
 		}
 	}
 
