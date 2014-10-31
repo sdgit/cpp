@@ -72,6 +72,7 @@
     <ClCompile Include="..\..\..\src\misc.cpp" />
     <ClCompile Include="..\..\..\src\my_class.cpp" />
     <ClCompile Include="..\..\..\src\number_utils.cpp" />
+    <ClCompile Include="..\..\..\src\search.cpp" />
     <ClCompile Include="..\..\..\src\Socket.cpp" />
     <ClCompile Include="..\..\..\src\sort.cpp" />
     <ClCompile Include="..\..\..\src\stack.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="..\..\..\src\misc.h" />
     <ClInclude Include="..\..\..\src\my_class.h" />
     <ClInclude Include="..\..\..\src\number_utils.h" />
+    <ClInclude Include="..\..\..\src\search.h" />
     <ClInclude Include="..\..\..\src\Socket.h" />
     <ClInclude Include="..\..\..\src\sort.h" />
     <ClInclude Include="..\..\..\src\stack.h" />
